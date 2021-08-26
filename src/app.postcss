@@ -1,0 +1,58 @@
+/* Write your global styles here, in PostCSS syntax */
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  --text-color: #a3e0be;
+  --heading-text-color: #fff;
+  --accent-text-color: #050f0a;
+  --bg-color: #0d2618;
+  --font-stack: "Space Grotesk", "Avenir", "Century Gothic", sans-serif;
+}
+
+body {
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  font-family: var(--font-stack);
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-text-color);
+  padding-block-end: 1rem;
+}
+
+h1 {
+  font-size: 6rem;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+a {
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+#svelte {
+  display: grid;
+  grid-template: auto 1fr auto / minmax(2rem, 1fr) minmax(auto, 30ch) minmax(
+      2rem,
+      1fr
+    );
+  min-height: 100vh;
+}
+
+#svelte > * {
+  grid-column: 2 / 3;
+}

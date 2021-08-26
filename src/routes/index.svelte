@@ -1,2 +1,11 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<!-- src/routes/index.svelte -->
+
+<svelte:head>
+  <title>Rory</title>
+</svelte:head>
+
+<h1>Rory</h1>
+<p>
+  I look at the details. I solve problems. Let's build it the right way
+  together.
+</p>
