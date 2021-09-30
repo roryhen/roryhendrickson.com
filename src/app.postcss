@@ -8,15 +8,24 @@
 html {
   --text-color: #a3e0be;
   --heading-text-color: #fff;
-  --accent-text-color: #050f0a;
+  --link-text-color: var(--text-color);
+  --accent-text-color: #3f634e;
   --bg-color: #0d2618;
-  --font-stack: "Space Grotesk", "Avenir", "Century Gothic", sans-serif;
+  --body-font-stack: "Space Grotesk", "Avenir", "Century Gothic", sans-serif;
+  --heading-font-stack: "Amagro", "Didot", "Georgia", serif;
+}
+
+.light-mode {
+  --text-color: #a3e0be;
+  --heading-text-color: #fff;
+  --accent-text-color: #3f634e;
+  --bg-color: #0d2618;
 }
 
 body {
   color: var(--text-color);
   background-color: var(--bg-color);
-  font-family: var(--font-stack);
+  font-family: var(--body-font-stack);
   font-size: 2rem;
   font-weight: 300;
 }
@@ -29,19 +38,22 @@ h5,
 h6 {
   color: var(--heading-text-color);
   padding-block-end: 1rem;
+  font-family: var(--heading-font-stack);
+  font-weight: normal;
 }
 
 h1 {
-  font-size: 6rem;
+  font-size: 15vmin;
 }
 
 h2 {
-  font-size: 3rem;
+  font-size: 8vmin;
 }
 
 a {
   color: var(--text-color);
   font-weight: 600;
+  text-underline-offset: 0.1em;
 }
 
 #svelte {
@@ -51,6 +63,7 @@ a {
       1fr
     );
   min-height: 100vh;
+  gap: 1rem;
 }
 
 #svelte > * {

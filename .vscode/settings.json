@@ -8,5 +8,6 @@
   "files.associations": {
     ".svelte": "html",
     ".postcss": "css"
-  }
+  },
+  "css.validate": false
 }
