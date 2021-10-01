@@ -1,7 +1,7 @@
 <!-- src/routes/__layout.svelte -->
 <script>
   import "../app.postcss";
-  import MenuToggle from "../components/menuToggle.svelte";
+  import MenuToggle from "../components/MenuToggle.svelte";
   import Logo from "../components/Logo.svelte";
   import { fly } from "svelte/transition";
 
