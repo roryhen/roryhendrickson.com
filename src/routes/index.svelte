@@ -6,6 +6,6 @@
 
 <h1>Rory</h1>
 <p>
-  I look at the details. I solve problems. Let's build it the right way
-  together.
+  Hi there, my name's Rory. I look at the details. I solve problems. Let's build
+  it the right way together.
 </p>

@@ -4,18 +4,21 @@
   import { page } from "$app/stores";
   import { fade, fly } from "svelte/transition";
   import MenuToggle from "$lib/MenuToggle.svelte";
-  import Logo from "$lib/Logo.svelte";
   import ThemeToggle from "$lib/ThemeToggle.svelte";
   import PageTransition from "$lib/PageTransition.svelte";
 
   let open;
+  let innerWidth;
+  $: mobileView = innerWidth < 500;
 
   function hideMenu(event) {
-    if (event.target.matches("a")) {
+    if (mobileView && event.target.matches("a")) {
       open = false;
     }
   }
 </script>
+
+<svelte:window bind:innerWidth />
 
 <svelte:head>
   <meta name="color-scheme" content="dark light" />
@@ -28,13 +31,18 @@
 </svelte:head>
 
 <header>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/work">Work</a>
-    <a href="/blog">Blog</a>
-    <a href="/contact">Contact</a>
-    <ThemeToggle />
-  </nav>
+  {#if open || !mobileView}
+    <nav transition:fly|local={{ y: 100 }} on:click={hideMenu}>
+      <a href="/">Home</a>
+      <a href="/work">Work</a>
+      <a href="/blog">Blog</a>
+      <a href="/contact">Contact</a>
+      <ThemeToggle />
+    </nav>
+  {/if}
+  {#if mobileView}
+    <MenuToggle bind:open />
+  {/if}
 </header>
 
 <main>
@@ -45,33 +53,12 @@
   <p><span>&reg;</span>2021 Rory Hendrickson</p>
 </footer>
 
-<div class="mobile-menu">
-  {#if open}
-    <nav transition:fly={{ y: 100 }} on:click={hideMenu}>
-      <a href="/">Home</a>
-      <a href="/work">Work</a>
-      <a href="/blog">Blog</a>
-      <a href="/contact">Contact</a>
-    </nav>
-  {/if}
-  <MenuToggle bind:open />
-</div>
-
 <style lang="postcss">
   nav {
     display: flex;
     flex-flow: row wrap;
-    gap: 1.5rem;
+    gap: 2rem;
     padding: 2rem 0;
-  }
-
-  header nav {
-    display: none;
-    align-items: center;
-  }
-
-  main {
-    padding-block-start: 4rem;
   }
 
   footer {
@@ -88,27 +75,19 @@
     line-height: 0.5;
   }
 
-  .mobile-menu nav {
-    position: fixed;
-    inset: 0 0 0 0;
-    flex-flow: column nowrap;
-    align-items: center;
-    justify-content: center;
-    background: var(--bg-color);
-    font-size: 3rem;
-  }
-
-  @media (min-width: 500px) {
-    .mobile-menu {
-      display: none;
-    }
-
-    header nav {
-      display: flex;
+  @media (max-width: 500px) {
+    nav {
+      position: fixed;
+      inset: 0 0 0 0;
+      flex-flow: column nowrap;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-color);
+      font-size: 3rem;
     }
 
     main {
-      padding-block-start: 0;
+      padding-block-start: 4rem;
     }
   }
 </style>

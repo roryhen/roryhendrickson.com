@@ -36,7 +36,7 @@
 
 <label class="toggle" style="--toggle-size: {size}; --toggle-pad: {pad};">
   <span class="sr-only">Light</span>
-  <input type="checkbox" bind:checked on:change={setTheme} />
+  <input type="checkbox" bind:checked on:change={setTheme} class="sr-only" />
   <span class="wrapper">
     <span class="handle">
       <svg
@@ -85,11 +85,11 @@
     font-size: 2rem;
     font-weight: 700;
     letter-spacing: -0.05em;
+    cursor: pointer;
   }
 
-  .toggle input {
-    visibility: hidden;
-    position: absolute;
+  .toggle:focus-within {
+    outline: -webkit-focus-ring-color auto 1px;
   }
 
   .wrapper,
