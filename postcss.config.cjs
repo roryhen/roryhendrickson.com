@@ -6,7 +6,11 @@ const dev = mode === "development";
 
 const config = {
   plugins: [
-    postcssPresetEnv(),
+    postcssPresetEnv({
+      features: {
+        "custom-properties": false,
+      },
+    }),
 
     !dev &&
       cssnano({
