@@ -29,7 +29,6 @@
 
 <header>
   <nav>
-    <!-- <Logo w="50" h="50" color="var(--link-text-color)" /> -->
     <a href="/">Home</a>
     <a href="/work">Work</a>
     <a href="/blog">Blog</a>
@@ -37,10 +36,6 @@
     <ThemeToggle />
   </nav>
 </header>
-
-<!-- <PageTransition refresh={$page.path}>
-  <slot />
-</PageTransition> -->
 
 <main>
   <slot />
