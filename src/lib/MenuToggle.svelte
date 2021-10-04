@@ -1,4 +1,4 @@
-<!-- src/lib/component/MenuToggle.svelte -->
+<!-- src/lib/MenuToggle.svelte -->
 <script>
   export let open = false;
   export let left = false;

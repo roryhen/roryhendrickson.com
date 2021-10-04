@@ -93,16 +93,14 @@
     line-height: 0.5;
   }
 
-  .mobile-menu {
-    nav {
-      position: fixed;
-      inset: 0 0 0 0;
-      flex-flow: column nowrap;
-      align-items: center;
-      justify-content: center;
-      background: var(--bg-color);
-      font-size: 3rem;
-    }
+  .mobile-menu nav {
+    position: fixed;
+    inset: 0 0 0 0;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-color);
+    font-size: 3rem;
   }
 
   @media (min-width: 500px) {

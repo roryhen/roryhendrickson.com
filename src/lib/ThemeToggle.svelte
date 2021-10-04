@@ -1,4 +1,4 @@
-<!-- src/lib/component/ThemeToggle.svelte -->
+<!-- src/lib/ThemeToggle.svelte -->
 <script>
   import { onMount } from "svelte";
 

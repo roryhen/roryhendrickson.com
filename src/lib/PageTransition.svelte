@@ -1,4 +1,4 @@
-<!-- src/lib/component/PageTransition.svelte -->
+<!-- src/lib/PageTransition.svelte -->
 <script>
   import { fade } from "svelte/transition";
   export let refresh = "";

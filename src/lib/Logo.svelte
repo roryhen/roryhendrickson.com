@@ -1,4 +1,4 @@
-<!-- src/lib/component/Logo.svelte -->
+<!-- src/lib/Logo.svelte -->
 <script>
   export let w = 100;
   export let h = 100;

@@ -1,6 +1,6 @@
 <!-- src/routes/work.svelte -->
 <script>
-  import { projects } from "./projects.js";
+  import { projects } from "$lib/projects.js";
 </script>
 
 <svelte:head>

@@ -1,4 +1,4 @@
-<!-- src/routes/worblogk.svelte -->
+<!-- src/routes/blog.svelte -->
 
 <svelte:head>
   <title>Blog</title>
