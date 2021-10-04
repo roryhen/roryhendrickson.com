@@ -5,21 +5,47 @@
   box-sizing: border-box;
 }
 
+:root {
+  color-scheme: light dark;
+}
+
 html {
   --text-color: #a3e0be;
   --heading-text-color: #fff;
   --link-text-color: var(--text-color);
-  --accent-text-color: #3f634e;
+  --accent-text-color: #4a745c;
   --bg-color: #0d2618;
   --body-font-stack: "Space Grotesk", "Avenir", "Century Gothic", sans-serif;
   --heading-font-stack: "Amagro", "Didot", "Georgia", serif;
 }
 
 .light-mode {
-  --text-color: #a3e0be;
-  --heading-text-color: #fff;
-  --accent-text-color: #3f634e;
-  --bg-color: #0d2618;
+  --text-color: #466454;
+  --heading-text-color: #17442b;
+  --accent-text-color: #328f5b;
+  --link-text-color: #246a44;
+  --bg-color: #c9edda;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Typography */
+@font-face {
+  font-family: "Amagro";
+  src: url("/fonts/amagro-webfont.woff2") format("woff2"),
+    url("/fonts/amagro-webfont.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
 }
 
 body {
@@ -28,6 +54,8 @@ body {
   font-family: var(--body-font-stack);
   font-size: 2rem;
   font-weight: 300;
+
+  transition: color 250ms, background 250ms;
 }
 
 h1,
@@ -39,7 +67,6 @@ h6 {
   color: var(--heading-text-color);
   padding-block-end: 1rem;
   font-family: var(--heading-font-stack);
-  font-weight: normal;
 }
 
 h1 {
@@ -48,12 +75,17 @@ h1 {
 
 h2 {
   font-size: 8vmin;
+  color: var(--accent-text-color);
 }
 
 a {
   color: var(--text-color);
   font-weight: 600;
   text-underline-offset: 0.1em;
+}
+
+a:hover {
+  opacity: 0.8;
 }
 
 #svelte {
@@ -66,6 +98,14 @@ a {
   gap: 1rem;
 }
 
-#svelte > * {
-  grid-column: 2 / 3;
+header {
+  grid-area: 1 / 2;
+}
+
+main {
+  grid-area: 2 / 2;
+}
+
+footer {
+  grid-area: 3 / 2;
 }

@@ -1,14 +1,24 @@
 <!-- src/routes/__layout.svelte -->
 <script>
   import "../app.postcss";
-  import MenuToggle from "../components/menuToggle.svelte";
-  import Logo from "../components/Logo.svelte";
-  import { fly } from "svelte/transition";
+  import { page } from "$app/stores";
+  import { fade, fly } from "svelte/transition";
+  import MenuToggle from "$lib/MenuToggle.svelte";
+  import Logo from "$lib/Logo.svelte";
+  import ThemeToggle from "$lib/ThemeToggle.svelte";
+  import PageTransition from "$lib/PageTransition.svelte";
 
   let open;
+
+  function hideMenu(event) {
+    if (event.target.matches("a")) {
+      open = false;
+    }
+  }
 </script>
 
 <svelte:head>
+  <meta name="color-scheme" content="dark light" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
   <link
@@ -19,13 +29,18 @@
 
 <header>
   <nav>
-    <Logo w="50" h="50" color="var(--link-text-color);" />
+    <!-- <Logo w="50" h="50" color="var(--link-text-color)" /> -->
     <a href="/">Home</a>
     <a href="/work">Work</a>
     <a href="/blog">Blog</a>
     <a href="/contact">Contact</a>
+    <ThemeToggle />
   </nav>
 </header>
+
+<!-- <PageTransition refresh={$page.path}>
+  <slot />
+</PageTransition> -->
 
 <main>
   <slot />
@@ -37,8 +52,7 @@
 
 <div class="mobile-menu">
   {#if open}
-    <nav transition:fly={{ y: 100 }}>
-      <Logo w="100" h="100" color="var(--link-text-color);" />
+    <nav transition:fly={{ y: 100 }} on:click={hideMenu}>
       <a href="/">Home</a>
       <a href="/work">Work</a>
       <a href="/blog">Blog</a>
@@ -58,6 +72,7 @@
 
   header nav {
     display: none;
+    align-items: center;
   }
 
   main {
@@ -78,14 +93,16 @@
     line-height: 0.5;
   }
 
-  .mobile-menu nav {
-    position: fixed;
-    inset: 0 0 0 0;
-    flex-flow: column nowrap;
-    align-items: center;
-    justify-content: center;
-    background: var(--bg-color);
-    font-size: 3rem;
+  .mobile-menu {
+    nav {
+      position: fixed;
+      inset: 0 0 0 0;
+      flex-flow: column nowrap;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-color);
+      font-size: 3rem;
+    }
   }
 
   @media (min-width: 500px) {

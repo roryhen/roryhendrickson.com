@@ -1,15 +1,16 @@
+<!-- src/lib/component/Logo.svelte -->
 <script>
-  export let w;
-  export let h;
+  export let w = 100;
+  export let h = 100;
   export let color;
 </script>
 
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  width={w ? w : 100}
-  height={h ? h : 100}
+  width={w}
+  height={h}
   viewBox="0 0 500 500"
-  style="fill: {color}"
+  fill={color}
 >
   <g id="code-syntax" transform="translate(100.309 100.309)">
     <path

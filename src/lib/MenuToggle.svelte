@@ -1,9 +1,10 @@
+<!-- src/lib/component/MenuToggle.svelte -->
 <script>
   export let open = false;
-  export let justify = "right";
+  export let left = false;
 </script>
 
-<button on:click={() => (open = !open)} class={justify} class:open>
+<button on:click={() => (open = !open)} class:left class:open>
   <svg
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -32,7 +33,8 @@
 <style lang="postcss">
   button {
     position: fixed;
-    inset-block-end: 1.5rem;
+    bottom: 1.5rem;
+    right: 1.5rem;
     width: 3rem;
     height: 3rem;
     padding: 0;
@@ -43,17 +45,8 @@
     cursor: pointer;
   }
 
-  .right {
-    inset-inline-end: 1.5rem;
-  }
-
-  .center {
-    inset-inline-start: 50%;
-    transform: translateX(-50%);
-  }
-
   .left {
-    inset-inline-start: 1.5rem;
+    left: 1.5rem;
   }
 
   svg {
