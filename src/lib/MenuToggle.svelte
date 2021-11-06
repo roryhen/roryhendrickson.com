@@ -6,8 +6,8 @@
 
 <button on:click={() => (open = !open)} class:left class:open>
   <svg
+    id="#three_dots"
     xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
     width="33"
     height="7"
     viewBox="0 0 33 7"
@@ -16,18 +16,7 @@
     <circle cx="3.5" cy="3.5" r="3.5" transform="translate(13)" />
     <circle cx="3.5" cy="3.5" r="3.5" transform="translate(26)" />
   </svg>
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
-    width="33"
-    height="7"
-    viewBox="0 0 33 7"
-  >
-    <circle cx="3.5" cy="3.5" r="3.5" />
-    <circle cx="3.5" cy="3.5" r="3.5" transform="translate(13)" />
-    <circle cx="3.5" cy="3.5" r="3.5" transform="translate(26)" />
-    <rect />
-  </svg>
+  <use href="#three_dots" />
 </button>
 
 <style lang="postcss">

@@ -16,7 +16,7 @@ html {
   --accent-text-color: #4a745c;
   --bg-color: #0d2618;
   --body-font-stack: "Space Grotesk", "Avenir", "Century Gothic", sans-serif;
-  --heading-font-stack: "Amagro", "Didot", "Georgia", serif;
+  --heading-font-stack: "Archivo", "Arial Black", sans-serif;
 }
 
 .light-mode {
@@ -40,19 +40,11 @@ html {
 }
 
 /* Typography */
-@font-face {
-  font-family: "Amagro";
-  src: url("/fonts/amagro-webfont.woff2") format("woff2"),
-    url("/fonts/amagro-webfont.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-}
-
 body {
   color: var(--text-color);
   background-color: var(--bg-color);
   font-family: var(--body-font-stack);
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 300;
 
   transition: color 250ms, background 250ms;
@@ -70,7 +62,7 @@ h6 {
 }
 
 h1 {
-  font-size: 15vmin;
+  font-size: 12vmin;
 }
 
 h2 {
@@ -90,19 +82,35 @@ a:hover {
 
 #svelte {
   display: grid;
-  grid-template: auto 1fr auto / 1fr minmax(auto, 40ch) 1fr;
+  grid-template: auto 1fr auto / repeat(4, 1fr);
+  grid-template-areas:
+    "header header header header"
+    "main main main main"
+    "footer footer footer footer";
   min-height: 100vh;
-  gap: 1rem;
+  width: 88vw;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 header {
-  grid-area: 1 / 2;
+  grid-area: header;
 }
 
 main {
-  grid-area: 2 / 2;
+  grid-area: main;
 }
 
 footer {
-  grid-area: 3 / 2;
+  grid-area: footer;
+}
+
+/* Buttons */
+.button {
+  display: inline-block;
+  color: var(--bg-color);
+  padding: 0.6em 1em;
+  background: var(--link-text-color);
+  border-radius: 0.2em;
+  text-decoration-line: none;
 }

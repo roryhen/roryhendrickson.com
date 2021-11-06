@@ -9,6 +9,11 @@
 
   let open;
   let innerWidth;
+
+  function watchWindow(width) {
+    return;
+  }
+
   $: mobileView = innerWidth < 500;
 
   function hideMenu(event) {
@@ -26,6 +31,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
   <link
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,700&display=swap"
     rel="stylesheet"
   />
 </svelte:head>
@@ -59,6 +68,7 @@
     flex-flow: row wrap;
     gap: 2rem;
     padding: 2rem 0;
+    align-items: center;
   }
 
   footer {

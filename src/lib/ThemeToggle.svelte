@@ -2,8 +2,8 @@
 <script>
   import { onMount } from "svelte";
 
-  export let size = "1.25em";
-  export let pad = "0.25em";
+  export let size = "1em";
+  export let pad = "0.15em";
   let checked;
 
   onMount(() => {
@@ -41,10 +41,10 @@
     <span class="handle">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        class="icon icon-tabler icon-tabler-sun"
+        class="icon icon-tabler-sun"
         width="44"
         height="44"
-        viewBox="0 0 30 30"
+        viewBox="0 0 24 24"
         stroke="#000000"
         stroke-width="1.5"
         fill="none"
@@ -59,10 +59,10 @@
       </svg>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        class="icon icon-tabler icon-tabler-moon"
+        class="icon icon-tabler-moon"
         width="44"
         height="44"
-        viewBox="0 0 30 30"
+        viewBox="0 0 24 24"
         stroke-width="1.5"
         stroke="#000000"
         fill="none"
@@ -81,15 +81,20 @@
 
 <style lang="postcss">
   .toggle {
-    position: relative;
     font-size: 2rem;
     font-weight: 700;
     letter-spacing: -0.05em;
+    user-select: none;
     cursor: pointer;
   }
 
   .toggle:focus-within {
     outline: -webkit-focus-ring-color auto 1px;
+  }
+
+  .toggle [type="checkbox"] {
+    visibility: hidden;
+    position: absolute;
   }
 
   .wrapper,
@@ -101,18 +106,17 @@
   .wrapper {
     box-sizing: content-box;
     width: calc(var(--toggle-size) * 2);
-    height: var(--toggle-size);
+    height: auto;
     padding: var(--toggle-pad);
-    vertical-align: calc(var(--toggle-pad) * -1);
-
+    vertical-align: calc(var(--toggle-pad) * -0.8);
     background: rgb(0 0 0 / 0.3);
   }
 
   .handle {
-    position: relative;
+    display: grid;
+    place-items: center;
     height: var(--toggle-size);
     width: var(--toggle-size);
-
     background: rgb(255 255 255);
     transition: transform 180ms ease;
     box-shadow: 0 0.25em 0.5em rgb(0 0 0 / 0.2);
@@ -123,29 +127,28 @@
   }
 
   .toggle input:checked ~ .wrapper .handle {
-    background: rgb(255 255 255 / 0.8);
+    background: rgb(255 255 255 / 0.7);
     transform: translatex(100%);
   }
 
   .icon {
-    position: absolute;
-    top: 0.0625em;
-    left: 0.0625em;
+    grid-area: 1/1;
+    width: 90%;
+    height: 90%;
     stroke: var(--text-color);
     transition: opacity 250ms;
   }
 
   .icon-tabler-moon {
     opacity: 0;
-    left: 0.125em;
     stroke: var(--bg-color);
   }
 
-  .toggle input:checked ~ span .icon-tabler-moon {
+  .toggle input:checked ~ .wrapper .icon-tabler-moon {
     opacity: 1;
   }
 
-  .toggle input:checked ~ span .icon-tabler-sun {
+  .toggle input:checked ~ .wrapper .icon-tabler-sun {
     opacity: 0;
   }
 </style>
