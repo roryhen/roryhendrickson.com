@@ -6,17 +6,24 @@
 
 <button on:click={() => (open = !open)} class:left class:open>
   <svg
-    id="#three_dots"
     xmlns="http://www.w3.org/2000/svg"
     width="33"
-    height="7"
-    viewBox="0 0 33 7"
-  >
-    <circle cx="3.5" cy="3.5" r="3.5" />
-    <circle cx="3.5" cy="3.5" r="3.5" transform="translate(13)" />
-    <circle cx="3.5" cy="3.5" r="3.5" transform="translate(26)" />
+    height="33"
+    viewBox="0 0 33 33">
+    <defs>
+      <circle id="dot" cx="3.5" cy="3.5" r="3.5" />
+    </defs>
+    <g class="three_dots">
+      <use href="#dot" x="0" y="13" />
+      <use href="#dot" x="13" y="13" />
+      <use href="#dot" x="26" y="13" />
+    </g>
+    <g class="three_dots">
+      <use href="#dot" x="0" y="13" />
+      <use href="#dot" x="13" y="13" />
+      <use href="#dot" x="26" y="13" />
+    </g>
   </svg>
-  <use href="#three_dots" />
 </button>
 
 <style lang="postcss">
@@ -29,8 +36,6 @@
     padding: 0;
     background: none;
     border: 0;
-    display: grid;
-    align-items: center;
     cursor: pointer;
   }
 
@@ -38,17 +43,18 @@
     left: 1.5rem;
   }
 
-  svg {
-    grid-area: 1/2;
+  .three_dots {
     fill: var(--text-color);
     transition: transform 0.3s;
+    transform-origin: center;
+    transform: rotate(0);
   }
 
-  .open svg {
+  .open .three_dots {
     transform: rotate(45deg);
   }
 
-  .open svg:nth-child(2) {
+  .open .three_dots:nth-child(2) {
     transform: rotate(-45deg);
   }
 </style>

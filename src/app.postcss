@@ -1,14 +1,28 @@
-/* Write your global styles here, in PostCSS syntax */
-
+/* Resets */
 * {
   margin: 0;
   box-sizing: border-box;
 }
 
-:root {
-  color-scheme: light dark;
+input,
+button,
+select,
+textarea {
+  font: inherit;
 }
 
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Images */
+img {
+  width: 100%;
+  height: auto;
+}
+
+/* Dark mode by default */
 html {
   --text-color: #a3e0be;
   --heading-text-color: #fff;
@@ -17,16 +31,22 @@ html {
   --bg-color: #0d2618;
   --body-font-stack: "Space Grotesk", "Avenir", "Century Gothic", sans-serif;
   --heading-font-stack: "Archivo", "Arial Black", sans-serif;
+
+  color-scheme: dark;
 }
 
-.light-mode {
+/* Light Mode */
+.light {
   --text-color: #466454;
   --heading-text-color: #17442b;
   --accent-text-color: #328f5b;
   --link-text-color: #246a44;
   --bg-color: #c9edda;
+
+  color-scheme: light;
 }
 
+/* Hide visually but keep for A11y */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -57,30 +77,49 @@ h4,
 h5,
 h6 {
   color: var(--heading-text-color);
-  padding-block-end: 1rem;
   font-family: var(--heading-font-stack);
 }
 
 h1 {
-  font-size: 12vmin;
+  font-size: clamp(3rem, 12vw, 8rem);
 }
 
 h2 {
-  font-size: 8vmin;
+  font-size: clamp(2rem, 8vw, 6rem);
   color: var(--accent-text-color);
 }
 
-a {
+/* Links */
+a,
+.button {
   color: var(--text-color);
   font-weight: 600;
-  text-underline-offset: 0.1em;
+  text-decoration: none;
 }
 
-a:hover {
+a:hover,
+.button:hover {
   opacity: 0.8;
 }
 
-#svelte {
+/* Buttons */
+.button {
+  display: inline-block;
+  color: var(--bg-color);
+  padding: 0.6em 1em;
+  background: var(--link-text-color);
+  border-radius: 0.2em;
+  text-decoration-line: none;
+  border: 0;
+}
+
+/* Forms */
+.form-row {
+  display: flex;
+}
+
+/* Layout */
+#app {
   display: grid;
   grid-template: auto 1fr auto / repeat(4, 1fr);
   grid-template-areas:
@@ -103,14 +142,4 @@ main {
 
 footer {
   grid-area: footer;
-}
-
-/* Buttons */
-.button {
-  display: inline-block;
-  color: var(--bg-color);
-  padding: 0.6em 1em;
-  background: var(--link-text-color);
-  border-radius: 0.2em;
-  text-decoration-line: none;
 }
