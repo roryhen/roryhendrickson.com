@@ -14,6 +14,8 @@
     place-content: var(--section-alignment, start);
     padding: var(--section-padding);
     gap: var(--section-gap);
+    grid-template-columns: var(--section-columns);
+    grid-template-rows: var(--section-rows);
   }
 
   .fullWidth {

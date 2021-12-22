@@ -12,43 +12,35 @@
 
 <p>What do you want to talk about? Let me know below.</p>
 
-<Spacer />
+<Spacer --spacer-height="3rem" />
 
-<hr />
-
-<Spacer />
-
-<Section card={true}>
-  <form name="contact" method="POST" data-netlify="true">
-    <p>
-      <label>Your Name: <input type="text" name="name" /></label>
+<Section --section-columns="1fr">
+  <form
+    name="contact"
+    action="/thank-you"
+    method="POST"
+    data-netlify="true"
+    class="card">
+    <p class="form-row">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" />
     </p>
-    <p>
-      <label>Your Email: <input type="email" name="email" /></label>
+    <p class="form-row">
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" required />
     </p>
-    <p>
-      <label
-        >Your Role: <select name="role[]" multiple>
-          <option value="leader">Leader</option>
-          <option value="follower">Follower</option>
-        </select></label
-      >
+    <p class="form-row">
+      <label for="message">Message</label>
+      <textarea name="message" id="message" rows="5" />
     </p>
-    <p>
-      <label>Message: <textarea name="message" /></label>
-    </p>
-    <p>
-      <button type="submit">Send</button>
+    <p class="form-row submit">
+      <button class="button" type="submit">Send</button>
     </p>
   </form>
 </Section>
 
 <style>
-  hr {
-    height: 2px;
-    width: 7ch;
-    background: var(--heading-text-color);
-    border: none;
-    font-size: 12vmin;
+  form {
+    max-width: 40rem;
   }
 </style>

@@ -25,25 +25,28 @@ img {
 /* Dark mode by default */
 html {
   --text-color: #a3e0be;
+  --text-color-hsl: 147 50% 76%;
   --heading-text-color: #fff;
   --link-text-color: var(--text-color);
   --accent-text-color: #4a745c;
   --bg-color: #0d2618;
   --body-font-stack: "Space Grotesk", "Avenir", "Century Gothic", sans-serif;
   --heading-font-stack: "Archivo", "Arial Black", sans-serif;
+  --box-radius: 0.2em;
 
   color-scheme: dark;
 }
 
 /* Light Mode */
 .light {
+  color-scheme: light;
+
   --text-color: #466454;
+  --text-color-hsl: 148 18% 33%;
   --heading-text-color: #17442b;
   --accent-text-color: #328f5b;
   --link-text-color: #246a44;
   --bg-color: #c9edda;
-
-  color-scheme: light;
 }
 
 /* Hide visually but keep for A11y */
@@ -108,14 +111,74 @@ a:hover,
   color: var(--bg-color);
   padding: 0.6em 1em;
   background: var(--link-text-color);
-  border-radius: 0.2em;
+  border-radius: var(--box-radius);
   text-decoration-line: none;
   border: 0;
 }
 
 /* Forms */
+input:not([type="button"]),
+textarea,
+select {
+  padding: 0.6rem 1rem;
+  border: 0;
+  border-radius: var(--box-radius);
+  background: hsl(147 18% 25%);
+  width: 100%;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.light :is(input:not([type="button"]), textarea, select) {
+  background: hsl(147 100% 97%);
+}
+
+form {
+  display: grid;
+  gap: 1rem;
+}
+
 .form-row {
-  display: flex;
+  display: grid;
+  grid-template: 1fr / 1fr 3fr;
+  gap: 1.5rem;
+
+  & label {
+    padding-block-start: 0.6rem;
+  }
+}
+
+.form-row.submit {
+  grid-template: 1fr / 3fr 1fr;
+
+  & .button {
+    grid-column-start: 2;
+  }
+}
+
+@media (max-width: 720px) {
+  .form-row,
+  .form-row.submit {
+    grid-template: auto 1fr / 1fr;
+    gap: 0.5rem;
+  }
+
+  .form-row.submit .button {
+    grid-column-start: 1;
+  }
+}
+
+/* Cards */
+.card {
+  padding: 2rem;
+  border-radius: calc(var(--box-radius) * 1.5);
+  background: hsl(147 28% 16%);
+}
+
+.light .card {
+  background: hsl(147 32% 77%);
 }
 
 /* Layout */
@@ -142,4 +205,19 @@ main {
 
 footer {
   grid-area: footer;
+}
+
+/* Animations */
+.slide-in-bottom {
+  animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+@keyframes slide-in-bottom {
+  0% {
+    transform: translateY(1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
