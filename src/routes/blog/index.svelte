@@ -15,7 +15,6 @@
 
 <script>
   import Section from "$lib/Section.svelte";
-
   import Time from "$lib/Time.svelte";
 
   export let posts;
