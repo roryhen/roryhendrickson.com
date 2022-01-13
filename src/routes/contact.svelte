@@ -12,9 +12,9 @@
 
 <p>What do you want to talk about? Let me know below.</p>
 
-<Spacer --spacer-height="3rem" />
-
-<Section --section-columns="1fr">
+<Section
+  --section-padding="3rem 0 0"
+  --section-columns="1fr minmax(auto, 40rem) 1fr">
   <form
     name="contact"
     action="/thank-you"
@@ -39,8 +39,8 @@
   </form>
 </Section>
 
-<style>
+<style lang="postcss">
   form {
-    max-width: 40rem;
+    grid-column-start: 2;
   }
 </style>

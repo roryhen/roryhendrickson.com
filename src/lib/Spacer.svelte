@@ -1,7 +1,7 @@
 <!-- src/lib/Spacer.svelte -->
 <div class="spacer" />
 
-<style>
+<style lang="postcss">
   div {
     height: var(--spacer-height, 1em);
   }

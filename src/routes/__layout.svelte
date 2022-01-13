@@ -35,7 +35,7 @@
 
 <header class:open>
   <nav on:click={hideMenu}>
-    <Logo --logo-color="var(--heading-text-color)" />
+    <Logo w={75} h={75} --logo-color="var(--heading-text-color)" />
     <a href="/">Home</a>
     <a href="/work">Work</a>
     <a href="/blog">Blog</a>
@@ -52,17 +52,17 @@
 </main>
 
 <footer>
-  <p><span>&reg;</span>2021 Rory Hendrickson</p>
+  <p><span>&reg;</span>{new Date().getFullYear()} Rory Hendrickson</p>
 </footer>
 
 <style lang="postcss">
   nav {
     display: flex;
     flex-flow: row wrap;
-    gap: 2rem;
+    gap: 2.6rem;
     padding: 2rem 0;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
   }
 
   nav :nth-child(1) {
@@ -73,11 +73,12 @@
     align-self: center;
     padding: 2rem 0;
     text-align: center;
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: var(--accent-text-color);
+
     & span {
-      vertical-align: -20%;
-      font-size: 1.4rem;
+      vertical-align: -18%;
+      font-size: 2.4rem;
       padding-inline-end: 0.1rem;
     }
   }
@@ -90,7 +91,7 @@
       align-items: center;
       justify-content: center;
       background: var(--bg-color);
-      font-size: 3rem;
+      font-size: 2.4rem;
 
       transition: opacity 0.2s, transform 0.2s;
       opacity: 0;

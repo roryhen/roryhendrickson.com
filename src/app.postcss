@@ -24,29 +24,29 @@ img {
 
 /* Dark mode by default */
 html {
-  --text-color: #a3e0be;
-  --text-color-hsl: 147 50% 76%;
-  --heading-text-color: #fff;
+  color-scheme: dark;
+
+  --text-color-hue: 147deg;
+  --text-color: hsl(147deg 50% 76%);
+  --heading-text-color: hsl(147deg 90% 98%);
   --link-text-color: var(--text-color);
-  --accent-text-color: #4a745c;
-  --bg-color: #0d2618;
+  --accent-text-color: hsl(146deg 35% 45%);
+  --bg-color: hsl(146deg 40% 8%);
   --body-font-stack: "Space Grotesk", "Avenir", "Century Gothic", sans-serif;
   --heading-font-stack: "Archivo", "Arial Black", sans-serif;
   --box-radius: 0.2em;
-
-  color-scheme: dark;
 }
 
 /* Light Mode */
 .light {
   color-scheme: light;
 
-  --text-color: #466454;
-  --text-color-hsl: 148 18% 33%;
-  --heading-text-color: #17442b;
-  --accent-text-color: #328f5b;
-  --link-text-color: #246a44;
-  --bg-color: #c9edda;
+  --text-color-hue: 148deg;
+  --text-color: hsl(148deg 18% 33%);
+  --heading-text-color: hsl(147deg 49% 18%);
+  --accent-text-color: hsl(146deg 48% 38%);
+  --link-text-color: hsl(147deg 49% 28%);
+  --bg-color: hsl(148deg 50% 90%);
 }
 
 /* Hide visually but keep for A11y */
@@ -67,9 +67,9 @@ body {
   color: var(--text-color);
   background-color: var(--bg-color);
   font-family: var(--body-font-stack);
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 300;
-
+  line-height: 1.6;
   transition: color 250ms, background 250ms;
 }
 
@@ -81,15 +81,30 @@ h5,
 h6 {
   color: var(--heading-text-color);
   font-family: var(--heading-font-stack);
+  line-height: 1;
+}
+
+article :where(h1, h2, h3, h4, h5, h6) {
+  margin-block-end: 0.7rem;
 }
 
 h1 {
-  font-size: clamp(3rem, 12vw, 8rem);
+  margin-inline-start: -0.5rem;
+  margin-block: 3rem 0.7rem;
+  font-size: clamp(4.2rem, 10vw, 6.9rem);
 }
 
 h2 {
-  font-size: clamp(2rem, 8vw, 6rem);
+  font-size: clamp(2.6rem, 6vw, 4.2rem);
   color: var(--accent-text-color);
+}
+
+h3 {
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+}
+
+h4 {
+  font-size: clamp(1.2rem, 2.3vw, 1.6rem);
 }
 
 /* Links */
@@ -102,7 +117,7 @@ a,
 
 a:hover,
 .button:hover {
-  opacity: 0.8;
+  filter: brightness(1.3);
 }
 
 /* Buttons */
@@ -137,7 +152,7 @@ textarea {
 
 form {
   display: grid;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .form-row {
@@ -191,7 +206,7 @@ form {
     "footer footer footer footer";
   min-height: 100vh;
   width: 88vw;
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -220,4 +235,15 @@ footer {
     transform: translateY(0);
     opacity: 1;
   }
+}
+
+/* Blog */
+article p {
+  margin-block-end: 2rem;
+}
+
+article time {
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
 }

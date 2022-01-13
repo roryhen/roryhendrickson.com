@@ -3,12 +3,13 @@ import { mdsvex } from "mdsvex";
 import mdsvexConfig from "./mdsvex.config.js";
 import preprocess from "svelte-preprocess";
 import adapter from "@sveltejs/adapter-static";
+import { imagetools } from "vite-imagetools";
 
 const config = {
   extensions: [".svelte", ...mdsvexConfig.extensions],
 
   kit: {
-    // hydrate the <div id="svelte"> element in src/app.html
+    // hydrate the <div id="app"> element in src/app.html
     target: "#app",
     adapter: adapter({
       // default options are shown
@@ -16,6 +17,9 @@ const config = {
       assets: "build",
       fallback: "index.html",
     }),
+    vite: {
+      plugins: [imagetools()],
+    },
   },
 
   preprocess: [

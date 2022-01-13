@@ -31,12 +31,12 @@
     position: fixed;
     bottom: 1.5rem;
     right: 1.5rem;
-    width: 3rem;
-    height: 3rem;
-    padding: 0;
+    line-height: 1;
+    padding: 0.3rem 0.8rem;
     background: none;
     border: 0;
     cursor: pointer;
+    display: grid;
   }
 
   .left {

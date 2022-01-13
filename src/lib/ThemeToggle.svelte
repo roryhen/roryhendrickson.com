@@ -72,6 +72,7 @@
     letter-spacing: -0.05em;
     user-select: none;
     cursor: pointer;
+    line-height: 1;
   }
 
   .toggle:focus-within {
@@ -119,8 +120,8 @@
 
   .icon {
     grid-area: 1/1;
-    width: 90%;
-    height: 90%;
+    width: 80%;
+    height: 80%;
     stroke: var(--text-color);
     transition: opacity 250ms;
   }

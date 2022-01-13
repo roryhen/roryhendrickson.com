@@ -1,16 +1,16 @@
 <!-- src/lib/Section.svelte -->
 <script>
-  export let fullWidth;
+  export let fullWidth = false;
 </script>
 
 <section class:fullWidth>
   <slot />
 </section>
 
-<style>
+<style lang="postcss">
   section {
     display: grid;
-    min-height: var(--section-height, 90vh);
+    min-height: var(--section-height, auto);
     place-content: var(--section-alignment, start);
     padding: var(--section-padding);
     gap: var(--section-gap);
