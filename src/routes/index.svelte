@@ -17,7 +17,7 @@
       in my toolbelt.
     </p>
     <p>
-      <a href="/contact" class="button">Get in touch</a>
+      <a sveltekit:prefetch href="/contact" class="button">Get in touch</a>
     </p>
   </Section>
   <Section>
@@ -26,7 +26,7 @@
       party app with your current setup? I can help with that.
     </p>
     <p class="justify-right">
-      <a href="/work" class="button">See my work</a>
+      <a sveltekit:prefetch href="/work" class="button">See my work</a>
     </p>
   </Section>
   <Section>
@@ -35,7 +35,7 @@
       learned while tooling around with tech, so I've documented some of it.
     </p>
     <p>
-      <a href="/blog" class="button">Have a read</a>
+      <a sveltekit:prefetch href="/blog" class="button">Have a read</a>
     </p>
   </Section>
 </div>

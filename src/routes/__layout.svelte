@@ -37,9 +37,9 @@
   <nav on:click={hideMenu}>
     <Logo w={75} h={75} --logo-color="var(--heading-text-color)" />
     <a href="/">Home</a>
-    <a href="/work">Work</a>
-    <a href="/blog">Blog</a>
-    <a href="/contact">Contact</a>
+    <a sveltekit:prefetch href="/work">Work</a>
+    <a sveltekit:prefetch href="/blog">Blog</a>
+    <a sveltekit:prefetch href="/contact">Contact</a>
     <ThemeToggle />
   </nav>
   {#if mobileView}
