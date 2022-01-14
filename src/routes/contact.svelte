@@ -12,9 +12,7 @@
 
 <p>What do you want to talk about? Let me know below.</p>
 
-<Section
-  --section-padding="3rem 0 0"
-  --section-columns="1fr minmax(auto, 40rem) 1fr">
+<section>
   <form
     name="contact"
     action="/thank-you"
@@ -37,10 +35,12 @@
       <button class="button" type="submit">Send</button>
     </p>
   </form>
-</Section>
+</section>
 
 <style lang="postcss">
   form {
-    grid-column-start: 2;
+    width: 100%;
+    max-width: 40rem;
+    margin: auto;
   }
 </style>

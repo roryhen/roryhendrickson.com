@@ -1,6 +1,6 @@
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function get({ params }) {
-  const allPosts = import.meta.globEager("./posts/*.{md,svx,svelte.md}");
+  const allPosts = import.meta.globEager("/src/lib/posts/*.{md,svx,svelte.md}");
 
   let posts = [];
   // Get the posts' slugs

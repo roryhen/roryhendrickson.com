@@ -1,6 +1,6 @@
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function get({ url }) {
-  const allPosts = import.meta.globEager("./posts/*.{md,svx,svelte.md}");
+  const allPosts = import.meta.globEager("/src/lib/posts/*.{md,svx,svelte.md}");
 
   const limit = Number(url.searchParams.get("limit") ?? Infinity);
 

@@ -29,17 +29,27 @@
 
 {#each posts as post}
   {#if post.published}
-    <Section --section-padding="5rem 0" --section-alignment="center start">
+    <section>
       <article>
         <a sveltekit:prefetch href="/blog/{post.slug}">
           <h2>{post.title}</h2>
         </a>
         <Time date={post.date} />
         <p>{post.description}</p>
+        <a sveltekit:prefetch href="/blog/{post.slug}">
+          <span>Read more ></span>
+        </a>
       </article>
-    </Section>
+    </section>
   {/if}
 {/each}
 
 <style lang="postcss">
+  article p {
+    margin-block-end: 0;
+  }
+
+  article a span {
+    font-size: 1rem;
+  }
 </style>

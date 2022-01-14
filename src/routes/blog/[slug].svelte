@@ -32,7 +32,7 @@
 </svelte:head>
 
 <article>
-  <h1>{post.title}</h1>
+  <h1>{@html post.title}</h1>
   <div class="metadata">
     <Time date={post.date} />
 
@@ -55,14 +55,19 @@
 <style lang="postcss">
   .metadata {
     display: flex;
+    flex-flow: row wrap;
     gap: 1.5rem;
-    margin-inline-start: 0.5rem;
     margin-block: 1rem 2rem;
+
+    @media (--sm-vw) {
+      gap: 0.5rem;
+    }
   }
 
   .tags {
     font-size: 1rem;
     display: flex;
+    flex-flow: row wrap;
     align-items: center;
     gap: 0.5rem;
 
@@ -71,8 +76,8 @@
       padding: 0.3em 0.8em;
       border-radius: 3em;
       line-height: 1;
-      background: var(--link-text-color);
-      color: var(--bg-color);
+      background: var(--brand);
+      color: var(--surface1);
     }
 
     & span:hover,

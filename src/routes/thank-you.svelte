@@ -9,6 +9,6 @@
 
 <h1>Contact</h1>
 
-<Section --section-alignment="center" --section-height="50vh">
+<Section --section-place-content="center" --section-height="50vh">
   <p class="slide-in-bottom">Thank you for your submission!</p>
 </Section>

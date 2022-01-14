@@ -17,8 +17,10 @@
 
   $: if (checked && browser) {
     document.body.classList.remove("light");
+    document.body.classList.add("dark");
     localStorage.setItem("theme", "dark");
   } else if (browser) {
+    document.body.classList.remove("dark");
     document.body.classList.add("light");
     localStorage.setItem("theme", "light");
   }
@@ -114,7 +116,7 @@
   }
 
   .toggle input:checked ~ .wrapper .handle {
-    background: rgb(255 255 255 / 0.7);
+    background: rgb(255 255 255 / 0.8);
     transform: translatex(100%);
   }
 
@@ -122,13 +124,13 @@
     grid-area: 1/1;
     width: 80%;
     height: 80%;
-    stroke: var(--text-color);
+    stroke: var(--brand);
     transition: opacity 250ms;
   }
 
   .icon-tabler-moon {
     opacity: 0;
-    stroke: var(--bg-color);
+    stroke: var(--surface2);
   }
 
   .toggle input:checked ~ .wrapper .icon-tabler-moon {

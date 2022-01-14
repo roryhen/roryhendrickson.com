@@ -37,6 +37,7 @@
     border: 0;
     cursor: pointer;
     display: grid;
+    z-index: 1;
   }
 
   .left {
@@ -44,7 +45,7 @@
   }
 
   .three_dots {
-    fill: var(--text-color);
+    fill: var(--text2);
     transition: transform 0.3s;
     transform-origin: center;
     transform: rotate(0);

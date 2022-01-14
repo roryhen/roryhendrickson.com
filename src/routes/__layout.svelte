@@ -3,7 +3,6 @@
   import "../app.postcss";
   import MenuToggle from "$lib/MenuToggle.svelte";
   import ThemeToggle from "$lib/ThemeToggle.svelte";
-  import Logo from "$lib/Logo.svelte";
 
   let open;
   let innerWidth;
@@ -35,7 +34,9 @@
 
 <header class:open>
   <nav on:click={hideMenu}>
-    <Logo w={75} h={75} --logo-color="var(--heading-text-color)" />
+    <svg viewBox="0 0 100 100" width="60" height="60">
+      <use href="/rh-dev-logo.svg#icon" />
+    </svg>
     <a href="/">Home</a>
     <a sveltekit:prefetch href="/work">Work</a>
     <a sveltekit:prefetch href="/blog">Blog</a>
@@ -43,6 +44,9 @@
     <ThemeToggle />
   </nav>
   {#if mobileView}
+    <svg viewBox="0 0 100 100" width="60" height="60">
+      <use href="/rh-dev-logo.svg#icon" />
+    </svg>
     <MenuToggle bind:open />
   {/if}
 </header>
@@ -52,7 +56,19 @@
 </main>
 
 <footer>
-  <p><span>&reg;</span>{new Date().getFullYear()} Rory Hendrickson</p>
+  <p class="social">
+    <a href="https://codepen.io/roryhen" rel="noreferrer noopener">
+      <svg viewBox="0 0 24 24" width="24" height="24"
+        ><use href="/codepen.svg#icon" /></svg>
+    </a>
+    <a href="https://github.com/roryhen" rel="noreferrer noopener">
+      <svg viewBox="0 0 24 24" width="24" height="24"
+        ><use href="/github.svg#icon" /></svg>
+    </a>
+  </p>
+  <p>
+    <span class="copyright-c">&copy;</span>{new Date().getFullYear()} Rory Hendrickson
+  </p>
 </footer>
 
 <style lang="postcss">
@@ -60,53 +76,75 @@
     display: flex;
     flex-flow: row wrap;
     gap: 2.6rem;
-    padding: 2rem 0;
     align-items: center;
     justify-content: space-between;
   }
 
-  nav :nth-child(1) {
-    margin-inline-end: auto;
+  header {
+    padding: 2rem 0;
+
+    & svg {
+      fill: var(--brand);
+    }
+
+    @media (--sm-vw) {
+      padding: 2rem 0 0;
+      margin: auto;
+    }
   }
 
   footer {
     align-self: center;
-    padding: 2rem 0;
+    padding: 3rem 0;
     text-align: center;
-    font-size: 1.5rem;
-    color: var(--accent-text-color);
+    font-size: 1rem;
+  }
 
-    & span {
-      vertical-align: -18%;
-      font-size: 2.4rem;
-      padding-inline-end: 0.1rem;
+  .social {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-block-end: 2rem;
+
+    & svg {
+      width: 5rem;
+      height: 5rem;
+      fill: currentColor;
     }
   }
 
-  @media (max-width: 720px) {
+  .copyright-c {
+    padding-inline-end: 0.1rem;
+  }
+
+  @media (--sm-vw) {
     nav {
       position: fixed;
       inset: 0 0 0 0;
       flex-flow: column nowrap;
+      gap: 2rem;
       align-items: center;
       justify-content: center;
-      background: var(--bg-color);
-      font-size: 2.4rem;
+      background: var(--surface1);
+      font-size: 2rem;
 
       transition: opacity 0.2s, transform 0.2s;
       opacity: 0;
       transform: translateY(15px);
       pointer-events: none;
+      z-index: 1;
+
+      & svg,
+      & :global(label) {
+        margin-block: 1rem;
+      }
     }
 
     .open nav {
       opacity: 1;
       transform: translateY(0);
       pointer-events: all;
-    }
-
-    main {
-      padding-block-start: 4rem;
     }
   }
 </style>

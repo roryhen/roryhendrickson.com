@@ -1,7 +1,6 @@
 <!-- src/routes/work.svelte -->
 <script>
   import { projects } from "$lib/projects.js";
-  import Section from "$lib/Section.svelte";
 </script>
 
 <svelte:head>
@@ -12,10 +11,7 @@
 <p>Here are some the projects that I've enjoyed working on.</p>
 
 {#each projects as project, i}
-  <Section
-    --section-alignment="center"
-    --section-gap="2rem"
-    --section-padding="5% 0">
+  <section>
     <figure>
       <img
         srcset={project.image}
@@ -43,19 +39,28 @@
         <p>{project.notes}</p>
       </li>
     </ul>
-  </Section>
+  </section>
 {/each}
 
 <style lang="postcss">
+  section {
+    place-content: center;
+    gap: 2rem;
+  }
+
   h3 {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     font-family: var(--body-font);
-    margin-block-end: 0.2rem;
+    margin-block-end: 0.5rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
   }
 
   ul {
+    max-width: 40rem;
+    margin: auto;
     display: flex;
     flex-flow: column;
-    gap: 0.8rem;
+    gap: 1rem;
   }
 </style>

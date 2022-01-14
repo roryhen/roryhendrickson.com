@@ -11,7 +11,8 @@
   section {
     display: grid;
     min-height: var(--section-height, auto);
-    place-content: var(--section-alignment, start);
+    place-items: var(--section-place-items);
+    place-content: var(--section-place-content);
     padding: var(--section-padding);
     gap: var(--section-gap);
     grid-template-columns: var(--section-columns);
