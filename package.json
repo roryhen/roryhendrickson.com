@@ -9,8 +9,8 @@
     "prepend": "sh prepend_file_path.sh"
   },
   "devDependencies": {
-    "@sveltejs/adapter-static": "^1.0.0-next.24",
-    "@sveltejs/kit": "^1.0.0-next.216",
+    "@sveltejs/adapter-static": "next",
+    "@sveltejs/kit": "next",
     "autoprefixer": "^10.3.7",
     "cssnano": "^5.0.8",
     "eslint": "^8.1.0",

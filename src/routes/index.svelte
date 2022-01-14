@@ -30,9 +30,9 @@
       <a sveltekit:prefetch href="/contact" class="button">Get in touch</a>
     </div>
   </section>
-  <section class="grid-col-one-two">
+  <section class="grid-col-two-three">
     <div class="icon-image work">
-      <svg viewBox="0 0 32 32" width="150" height="150"
+      <svg viewBox="0 0 32 32" width="100" height="100"
         ><use href="/app-developer.svg#icon" /></svg>
     </div>
     <div class="content col-start-2">
@@ -43,9 +43,9 @@
       <a sveltekit:prefetch href="/work" class="button">See my work</a>
     </div>
   </section>
-  <section class="grid-col-two-one">
+  <section class="grid-col-three-two">
     <div class="icon-image blog">
-      <svg viewBox="0 0 32 32" width="150" height="150"
+      <svg viewBox="0 0 32 32" width="100" height="100"
         ><use href="/build.svg#icon" /></svg>
     </div>
     <div class="content">
@@ -64,7 +64,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     place-content: center;
-    place-items: center;
+    place-items: center stretch;
     gap: 4rem;
 
     @media (--sm-vw) {
@@ -72,12 +72,12 @@
     }
   }
 
-  .grid-col-one-two {
-    grid-template-columns: 1fr 2fr;
+  .grid-col-two-three {
+    grid-template-columns: 2fr 3fr;
   }
 
-  .grid-col-two-one {
-    grid-template-columns: 2fr 1fr;
+  .grid-col-three-two {
+    grid-template-columns: 3fr 2fr;
   }
 
   p {
@@ -111,27 +111,34 @@
   }
 
   .icon-image {
-    padding: 6rem;
     background-color: var(--surface2);
-    display: grid;
-    place-content: center;
+    aspect-ratio: 1;
 
     & > svg {
       stroke: none;
       fill: var(--text2);
+      width: 40%;
+      height: auto;
+      position: relative;
+      top: 50%;
+      left: 50%;
+    }
+  }
+
+  .work {
+    border-radius: var(--radius-blob-5);
+
+    & svg {
+      transform: translate(-60%, -60%);
     }
   }
 
   .blog {
     border-radius: var(--radius-blob-3);
-    padding-inline-start: 8rem;
-    padding-block-start: 8rem;
-  }
 
-  .work {
-    border-radius: var(--radius-blob-5);
-    padding-inline-end: 8rem;
-    padding-block-end: 8rem;
+    & svg {
+      transform: translate(-40%, -40%);
+    }
   }
 
   @media (--sm-vw) {
