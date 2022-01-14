@@ -1,9 +1,4 @@
 <!-- src/routes/contact.svelte -->
-<script>
-  import Spacer from "$lib/Spacer.svelte";
-  import Section from "$lib/Section.svelte";
-</script>
-
 <svelte:head>
   <title>Contact</title>
 </svelte:head>

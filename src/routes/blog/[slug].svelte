@@ -1,9 +1,7 @@
 <script context="module">
-  /**
-   * @type {import('@sveltejs/kit').Load}
-   */
-  export async function load({ params, fetch }) {
-    const res = await fetch(`/blog/${params.slug}.json`);
+  /** @type {import('@sveltejs/kit').Load} */
+  export async function load({ url, fetch }) {
+    const res = await fetch(`${url.pathname}.json`);
     const post = await res.json();
     if (res.ok && post.published) {
       return { props: { post } };

@@ -1,5 +1,6 @@
 <!-- src/routes/blog/index.svelte -->
 <script context="module">
+  /** @type {import('@sveltejs/kit').Load} */
   export async function load({ fetch }) {
     const res = await fetch(`/blog.json`);
     const posts = await res.json();
@@ -14,7 +15,6 @@
 </script>
 
 <script>
-  import Section from "$lib/Section.svelte";
   import Time from "$lib/Time.svelte";
 
   export let posts;

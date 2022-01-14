@@ -66,10 +66,6 @@
     place-content: center;
     place-items: center stretch;
     gap: 4rem;
-
-    @media (--sm-vw) {
-      grid-column: 1fr;
-    }
   }
 
   .grid-col-two-three {
