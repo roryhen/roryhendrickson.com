@@ -9,7 +9,13 @@ const dev = mode === "development";
 const config = {
   plugins: [
     postcssNesting(),
-    postcssCustomMedia(),
+    postcssCustomMedia({
+      importFrom: [
+        {
+          customMedia: { "--sm-vw": "(max-width: 720px)" },
+        },
+      ],
+    }),
     autoprefixer(),
     !dev &&
       cssnano({

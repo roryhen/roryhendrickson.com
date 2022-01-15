@@ -9,54 +9,52 @@
 
 <h1>Welcome</h1>
 
-<div>
-  <section>
-    <div
-      class="featured-image col-start-2"
-      style="background-image: url({headshot})">
-      <img
-        src={headshot}
-        alt="Headshot of Rory"
-        decoding="async"
-        width="764"
-        height="892" />
-    </div>
-    <div class="content">
-      <p>
-        Hello, my name is Rory. I learn, live, and love web development. I geek
-        out over the details. I build projects with experience and best
-        practices in my toolbelt.
-      </p>
-      <a sveltekit:prefetch href="/contact" class="button">Get in touch</a>
-    </div>
-  </section>
-  <section class="grid-col-two-three">
-    <div class="icon-image work">
-      <svg viewBox="0 0 32 32" width="100" height="100"
-        ><use href="/app-developer.svg#icon" /></svg>
-    </div>
-    <div class="content col-start-2">
-      <p>
-        Need some bugs fixed? Have an eCommerce website? Want to integrate a
-        third party app with your current setup? I can help with that.
-      </p>
-      <a sveltekit:prefetch href="/work" class="button">See my work</a>
-    </div>
-  </section>
-  <section class="grid-col-three-two">
-    <div class="icon-image blog">
-      <svg viewBox="0 0 32 32" width="100" height="100"
-        ><use href="/build.svg#icon" /></svg>
-    </div>
-    <div class="content">
-      <p>
-        I don't have room in my head for the various solutions and concepts I've
-        learned while tooling around with tech, so I've documented some of it.
-      </p>
-      <a sveltekit:prefetch href="/blog" class="button">Have a read</a>
-    </div>
-  </section>
-</div>
+<section>
+  <div
+    class="featured-image col-start-2"
+    style="background-image: url({headshot})">
+    <img
+      src={headshot}
+      alt="Headshot of Rory"
+      decoding="async"
+      width="764"
+      height="892" />
+  </div>
+  <div class="content">
+    <p>
+      Hello, my name is Rory. I learn, live, and love web development. I geek
+      out over the details. I build projects with experience and best practices
+      in my toolbelt.
+    </p>
+    <a sveltekit:prefetch href="/contact" class="button">Get in touch</a>
+  </div>
+</section>
+<section class="grid-col-two-three">
+  <div class="icon-image work">
+    <svg viewBox="0 0 32 32" width="100" height="100"
+      ><use href="/app-developer.svg#icon" /></svg>
+  </div>
+  <div class="content col-start-2">
+    <p>
+      Need some bugs fixed? Have an eCommerce website? Want to integrate a third
+      party app with your current setup? I can help with that.
+    </p>
+    <a sveltekit:prefetch href="/work" class="button">See my work</a>
+  </div>
+</section>
+<section class="grid-col-three-two">
+  <div class="icon-image blog">
+    <svg viewBox="0 0 32 32" width="100" height="100"
+      ><use href="/build.svg#icon" /></svg>
+  </div>
+  <div class="content">
+    <p>
+      I don't have room in my head for the various solutions and concepts I've
+      learned while tooling around with tech, so I've documented some of it.
+    </p>
+    <a sveltekit:prefetch href="/blog" class="button">Have a read</a>
+  </div>
+</section>
 
 <style lang="postcss">
   section {

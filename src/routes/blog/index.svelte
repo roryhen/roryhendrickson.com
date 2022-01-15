@@ -44,6 +44,7 @@
   {/if}
 {/each}
 
+<!-- TODO: add proper pagination -->
 <style lang="postcss">
   article p {
     margin-block-end: 0;

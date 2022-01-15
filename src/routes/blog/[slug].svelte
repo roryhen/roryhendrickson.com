@@ -45,9 +45,8 @@
 </article>
 
 <nav class="pagination">
-  <!-- <a href="#0">Prev</a> -->
+  <!-- TODO: add proper pagination -->
   <a href="/blog">&lt; Back</a>
-  <!-- <a href="#0">Next</a> -->
 </nav>
 
 <style lang="postcss">
