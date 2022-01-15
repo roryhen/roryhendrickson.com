@@ -1,3 +1,4 @@
+<!-- src/lib/Time.svelte -->
 <script>
   export let date;
 </script>

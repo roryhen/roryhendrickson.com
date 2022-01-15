@@ -14,6 +14,7 @@
     method="POST"
     data-netlify="true"
     class="card">
+    <input type="hidden" name="form-name" value="contact" />
     <p class="form-row">
       <label for="name">Name</label>
       <input type="text" name="name" id="name" />

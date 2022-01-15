@@ -36,7 +36,7 @@
         </a>
         <Time date={post.date} />
         <p>{post.description}</p>
-        <a sveltekit:prefetch href="/blog/{post.slug}">
+        <a href="/blog/{post.slug}">
           <span>Read more &gt;</span>
         </a>
       </article>
