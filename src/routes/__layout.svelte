@@ -1,18 +1,25 @@
 <!-- src/routes/__layout.svelte -->
+<script context="module">
+  /** @type {import('@sveltejs/kit').Load} */
+  export const load = async ({ url }) => ({
+    props: {
+      key: url,
+    },
+  });
+</script>
+
 <script>
   import "../app.postcss";
   import MenuToggle from "$lib/MenuToggle.svelte";
   import ThemeToggle from "$lib/ThemeToggle.svelte";
+  import PageTransition from "$lib/PageTransition.svelte";
 
+  export let key;
   let open;
   let innerWidth;
 
-  $: mobileView = innerWidth < 720;
-
-  $: open = !mobileView;
-
   function hideMenu(event) {
-    if (mobileView && event.target.matches("a")) {
+    if (event.target.matches("a")) {
       open = false;
     }
   }
@@ -32,8 +39,8 @@
     rel="stylesheet" />
 </svelte:head>
 
-<header class:open>
-  <nav on:click={hideMenu}>
+<header>
+  <nav on:click={hideMenu} class:open>
     <svg viewBox="0 0 100 100" width="60" height="60">
       <use href="/rh-dev-logo.svg#icon" />
     </svg>
@@ -43,25 +50,25 @@
     <a sveltekit:prefetch href="/contact">Contact</a>
     <ThemeToggle />
   </nav>
-  {#if mobileView}
+  <div class="mobile">
     <svg viewBox="0 0 100 100" width="60" height="60">
       <use href="/rh-dev-logo.svg#icon" />
     </svg>
     <MenuToggle bind:open />
-  {/if}
+  </div>
 </header>
 
-<main>
+<PageTransition refresh={key}>
   <slot />
-</main>
+</PageTransition>
 
 <footer>
   <p class="social">
-    <a href="https://codepen.io/roryhen" rel="noreferrer noopener">
+    <a href="https://codepen.io/roryhen" rel="external">
       <svg viewBox="0 0 24 24" width="24" height="24"
         ><use href="/codepen.svg#icon" /></svg>
     </a>
-    <a href="https://github.com/roryhen" rel="noreferrer noopener">
+    <a href="https://github.com/roryhen" rel="external">
       <svg viewBox="0 0 24 24" width="24" height="24"
         ><use href="/github.svg#icon" /></svg>
     </a>
@@ -88,8 +95,7 @@
     }
 
     @media (--sm-vw) {
-      padding: 2rem 0 0;
-      margin: auto;
+      padding-block: 2rem 0;
     }
   }
 
@@ -100,6 +106,10 @@
     font-size: 1rem;
   }
 
+  .mobile {
+    display: none;
+  }
+
   .social {
     display: flex;
     flex-flow: row wrap;
@@ -108,8 +118,8 @@
     margin-block-end: 2rem;
 
     & svg {
-      width: 5rem;
-      height: 5rem;
+      width: 4.5rem;
+      height: 4.5rem;
       fill: currentColor;
     }
   }
@@ -122,18 +132,19 @@
     nav {
       position: fixed;
       inset: 0 0 0 0;
-      flex-flow: column nowrap;
+      padding: 10vh 0;
+      display: grid;
+      grid-auto-rows: auto;
+      place-content: center;
+      justify-items: center;
       gap: 2rem;
-      align-items: center;
-      justify-content: center;
       background: var(--surface1);
-      font-size: 2rem;
+      font-size: 1.8rem;
 
-      transition: opacity 0.2s, transform 0.2s;
       opacity: 0;
       transform: translateY(15px);
       pointer-events: none;
-      z-index: 1;
+      transition: opacity 0.2s, transform 0.2s;
 
       & svg,
       & :global(label) {
@@ -141,10 +152,15 @@
       }
     }
 
-    .open nav {
+    .open {
       opacity: 1;
       transform: translateY(0);
       pointer-events: all;
+      z-index: 1;
+    }
+
+    .mobile {
+      display: block;
     }
   }
 </style>

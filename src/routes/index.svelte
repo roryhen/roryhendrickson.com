@@ -31,8 +31,9 @@
 </section>
 <section class="grid-col-two-three">
   <div class="icon-image work">
-    <svg viewBox="0 0 32 32" width="100" height="100"
-      ><use href="/app-developer.svg#icon" /></svg>
+    <svg viewBox="0 0 32 32" width="100" height="100">
+      <use href="/app-developer.svg#icon" />
+    </svg>
   </div>
   <div class="content col-start-2">
     <p>
@@ -44,8 +45,9 @@
 </section>
 <section class="grid-col-three-two">
   <div class="icon-image blog">
-    <svg viewBox="0 0 32 32" width="100" height="100"
-      ><use href="/build.svg#icon" /></svg>
+    <svg viewBox="0 0 32 32" width="100" height="100">
+      <use href="/build.svg#icon" />
+    </svg>
   </div>
   <div class="content">
     <p>
@@ -140,6 +142,12 @@
     .featured-image,
     .icon-image {
       grid-column: 1 / span 2;
+    }
+
+    .featured-image,
+    .icon-image {
+      margin-left: 10%;
+      margin-right: 10%;
     }
 
     .content {
