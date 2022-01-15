@@ -18,7 +18,8 @@
         alt="Site screenshot"
         decoding="async"
         width="1340"
-        height="800" />
+        height="800"
+        loading={i > 0 ? "lazy" : "eager"} />
     </figure>
     <h2>Project #{i + 1}</h2>
     <ul class="card">

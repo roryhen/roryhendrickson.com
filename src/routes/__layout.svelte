@@ -45,9 +45,9 @@
       <use href="/rh-dev-logo.svg#icon" />
     </svg>
     <a href="/">Home</a>
-    <a sveltekit:prefetch href="/work">Work</a>
-    <a sveltekit:prefetch href="/blog">Blog</a>
-    <a sveltekit:prefetch href="/contact">Contact</a>
+    <a sveltekit:prefetch href="/work/">Work</a>
+    <a sveltekit:prefetch href="/blog/">Blog</a>
+    <a sveltekit:prefetch href="/contact/">Contact</a>
     <ThemeToggle />
   </nav>
   <div class="mobile">

@@ -2,7 +2,7 @@
 import { mdsvex } from "mdsvex";
 import mdsvexConfig from "./mdsvex.config.js";
 import preprocess from "svelte-preprocess";
-import adapter from "@sveltejs/adapter-static";
+import adapter from "@sveltejs/adapter-netlify";
 import { imagetools } from "vite-imagetools";
 
 const config = {
@@ -11,15 +11,14 @@ const config = {
   kit: {
     // hydrate the <div id="app"> element in src/app.html
     target: "#app",
-    adapter: adapter({
-      // default options are shown
-      pages: "build",
-      assets: "build",
-      fallback: null,
-    }),
+    adapter: adapter(),
+    prerender: {
+      entries: ["*"],
+    },
     vite: {
       plugins: [imagetools()],
     },
+    trailingSlash: "always",
   },
 
   preprocess: [

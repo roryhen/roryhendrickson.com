@@ -1,6 +1,5 @@
 <!-- src/routes/blog/[slug].svelte -->
 <script context="module">
-  export const hydrate = false;
   /** @type {import('@sveltejs/kit').Load} */
   export async function load({ params, fetch }) {
     const res = await fetch(`/blog/${params.slug}.json`);

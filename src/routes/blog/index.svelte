@@ -1,6 +1,5 @@
 <!-- src/routes/blog/index.svelte -->
 <script context="module">
-  export const hydrate = false;
   /** @type {import('@sveltejs/kit').Load} */
   export async function load({ fetch }) {
     const res = await fetch(`/blog.json`);
@@ -37,7 +36,7 @@
         </a>
         <Time date={post.date} />
         <p>{post.description}</p>
-        <a href="/blog/{post.slug}">
+        <a href="/blog/{post.slug}/">
           <span>Read more &gt;</span>
         </a>
       </article>

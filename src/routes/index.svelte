@@ -5,6 +5,7 @@
 
 <svelte:head>
   <title>Rory Web Dev</title>
+  <link rel="preload" as="image" href={headshot} />
 </svelte:head>
 
 <h1>Welcome</h1>
@@ -18,7 +19,8 @@
       alt="Headshot of Rory"
       decoding="async"
       width="764"
-      height="892" />
+      height="892"
+      loading="eager" />
   </div>
   <div class="content">
     <p>
