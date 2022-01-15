@@ -1,6 +1,5 @@
 <!-- src/routes/blog/[slug].svelte -->
 <script context="module">
-  export const hydrate = false;
   /** @type {import('@sveltejs/kit').Load} */
   export async function load({ params, fetch }) {
     const res = await fetch(`/blog/${params.slug}.json`);
@@ -16,8 +15,6 @@
 </script>
 
 <script>
-  import Time from "$lib/Time.svelte";
-
   export let post;
 </script>
 
@@ -34,8 +31,7 @@
 <article>
   <h1>{@html post.title}</h1>
   <div class="metadata">
-    <Time date={post.date} />
-
+    <time datetime={post.date}>{post.date}</time>
     <div class="tags">
       {#each post.tags as tag}
         <span>{tag}</span>
@@ -48,7 +44,7 @@
 
 <nav class="pagination">
   <!-- TODO: add proper pagination -->
-  <a href="/blog">&lt; Back</a>
+  <a href="/blog/">&lt; Back</a>
 </nav>
 
 <style lang="postcss">
