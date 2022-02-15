@@ -31,7 +31,7 @@ img {
   /* Colors */
   --teal-0: hsl(161deg 25% 95%);
   --teal-1: hsl(161deg 35% 75%);
-  --teal-2: hsl(161deg 60% 40%);
+  --teal-2: hsl(161deg 60% 37%);
   --teal-3: hsl(161deg 55% 25%);
   --teal-4: hsl(161deg 45% 15%);
   --teal-5: hsl(161deg 30% 10%);
@@ -60,18 +60,9 @@ img {
   --radius-blob-3: 37% 63% 56% 44% / 49% 56% 44% 51%;
   --radius-blob-4: 63% 37% 37% 63% / 43% 37% 63% 57%;
   --radius-blob-5: 49% 51% 48% 52% / 57% 44% 56% 43%;
-
-  /* Light Mode */
-  --brand: var(--brand-light);
-  --text1: var(--text1-light);
-  --text2: var(--text2-light);
-  --surface1: var(--surface1-light);
-  --surface2: var(--surface2-light);
-  --surface3: var(--surface3-light);
-  --highlight: var(--teal-accent);
 }
 
-.dark {
+[data-theme="dark"] {
   --brand: var(--brand-dark);
   --text1: var(--text1-dark);
   --text2: var(--text2-dark);
@@ -81,27 +72,14 @@ img {
   --highlight: var(--teal-accent-dark);
 }
 
-/* Dark Theme */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --brand: var(--brand-dark);
-    --text1: var(--text1-dark);
-    --text2: var(--text2-dark);
-    --surface1: var(--surface1-dark);
-    --surface2: var(--surface2-dark);
-    --surface3: var(--surface3-dark);
-    --highlight: var(--teal-accent-dark);
-  }
-
-  .light {
-    --brand: var(--brand-light);
-    --text1: var(--text1-light);
-    --text2: var(--text2-light);
-    --surface1: var(--surface1-light);
-    --surface2: var(--surface2-light);
-    --surface3: var(--surface3-light);
-    --highlight: var(--teal-accent);
-  }
+[data-theme="light"] {
+  --brand: var(--brand-light);
+  --text1: var(--text1-light);
+  --text2: var(--text2-light);
+  --surface1: var(--surface1-light);
+  --surface2: var(--surface2-light);
+  --surface3: var(--surface3-light);
+  --highlight: var(--teal-accent);
 }
 
 /* Hide visually but keep for A11y */
@@ -115,6 +93,11 @@ img {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+/* Prevent transitions on page load */
+.preload * {
+  transition: none !important;
 }
 
 /* Typography */
@@ -325,6 +308,6 @@ article p {
 
 article time {
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 600;
   letter-spacing: 0.2rem;
 }

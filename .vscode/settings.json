@@ -10,5 +10,6 @@
     ".svx": "md",
     ".postcss": "css"
   },
+  "svelte.enable-ts-plugin": true,
   "css.validate": false
 }

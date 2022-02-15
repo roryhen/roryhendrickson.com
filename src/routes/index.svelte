@@ -1,26 +1,31 @@
 <!-- src/routes/index.svelte -->
 <script>
-  import headshot from "$lib/assets/rory-headshot.png?width=800&format=png";
+  import headshot from "$lib/assets/rory-headshot.png?width=360;760&format=webp;avif;png&srcset";
 </script>
 
 <svelte:head>
   <title>Rory Web Dev</title>
-  <link rel="preload" as="image" href={headshot} />
+  <link rel="preload" as="image" imagesrcset={headshot} />
 </svelte:head>
 
 <h1>Welcome</h1>
 
 <section>
-  <div
-    class="featured-image col-start-2"
-    style="background-image: url({headshot})">
+  <div class="featured-image col-start-2">
+    <div class="blob">
+      <img
+        srcset={headshot}
+        alt="Headshot of Rory"
+        decoding="async"
+        width="764"
+        height="892" />
+    </div>
     <img
-      src={headshot}
+      srcset={headshot}
       alt="Headshot of Rory"
       decoding="async"
       width="764"
-      height="892"
-      loading="eager" />
+      height="892" />
   </div>
   <div class="content">
     <p>
@@ -92,18 +97,24 @@
 
   .featured-image {
     --top-offset: 2.5rem;
-    margin-block-start: var(--top-offset);
-    background-color: var(--surface2);
-    background-size: cover;
-    background-position: center calc(var(--top-offset) * -1);
-    background-repeat: no-repeat;
-    border-radius: var(--radius-blob-4);
+    position: relative;
 
-    & img {
+    & .blob {
+      margin-block-start: var(--top-offset);
+      background-color: var(--surface2);
+      border-radius: var(--radius-blob-4);
+      overflow: hidden;
+    }
+
+    & .blob img {
       margin-block-start: calc(var(--top-offset) * -1);
       vertical-align: bottom;
       object-fit: cover;
-      object-position: top;
+    }
+
+    & > img {
+      position: absolute;
+      top: 0;
       clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
     }
   }

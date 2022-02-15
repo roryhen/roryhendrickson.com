@@ -1,34 +1,44 @@
 <!-- src/lib/ThemeToggle.svelte -->
 <script>
   import { onMount } from "svelte";
-  import { browser } from "$app/env";
 
   export let size = "1em";
   export let pad = "0.15em";
-  let checked = false;
+  export let checked = false;
+
+  function toggle() {
+    let theme = checked ? "light" : "dark";
+    document.firstElementChild.dataset.theme = theme;
+    localStorage.setItem("theme", theme);
+  }
 
   onMount(() => {
-    if ("theme" in localStorage) {
-      checked = localStorage.theme === "dark";
-    } else {
-      checked = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    }
+    checked = localStorage.theme === "dark";
   });
-
-  $: if (checked && browser) {
-    document.body.classList.remove("light");
-    document.body.classList.add("dark");
-    localStorage.setItem("theme", "dark");
-  } else if (browser) {
-    document.body.classList.remove("dark");
-    document.body.classList.add("light");
-    localStorage.setItem("theme", "light");
-  }
 </script>
+
+<svelte:window on:load={() => document.body.classList.remove("preload")} />
+
+<svelte:head>
+  <script>
+    !(function () {
+      let theme;
+      if ("theme" in localStorage) {
+        theme = localStorage.theme;
+      } else {
+        theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+      }
+      localStorage.setItem("theme", theme);
+      document.firstElementChild.dataset.theme = theme;
+    })();
+  </script>
+</svelte:head>
 
 <label class="toggle" style="--toggle-size: {size}; --toggle-pad: {pad};">
   <span class="sr-only">Light</span>
-  <input type="checkbox" bind:checked class="sr-only" />
+  <input type="checkbox" bind:checked on:click={toggle} class="sr-only" />
   <span class="wrapper">
     <span class="handle">
       <svg
@@ -70,7 +80,7 @@
 <style lang="postcss">
   .toggle {
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: bold;
     letter-spacing: -0.05em;
     user-select: none;
     cursor: pointer;

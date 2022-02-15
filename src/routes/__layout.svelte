@@ -15,8 +15,7 @@
   import PageTransition from "$lib/PageTransition.svelte";
 
   export let key;
-  let open;
-  let innerWidth;
+  let open = false;
 
   function hideMenu(event) {
     if (event.target.matches("a")) {
@@ -25,14 +24,12 @@
   }
 </script>
 
-<svelte:window bind:innerWidth />
-
 <svelte:head>
   <meta name="color-scheme" content="dark light" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;600&display=swap"
     rel="stylesheet" />
   <link
     href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,700&display=swap"
@@ -65,10 +62,12 @@
 <footer>
   <p class="social">
     <a href="https://codepen.io/roryhen" rel="external">
+      <span class="sr-only">Rory's Codepen</span>
       <svg viewBox="0 0 24 24" width="24" height="24"
         ><use href="/codepen.svg#icon" /></svg>
     </a>
     <a href="https://github.com/roryhen" rel="external">
+      <span class="sr-only">Rory's GitHub</span>
       <svg viewBox="0 0 24 24" width="24" height="24"
         ><use href="/github.svg#icon" /></svg>
     </a>
