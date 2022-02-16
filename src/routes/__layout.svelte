@@ -25,15 +25,22 @@
 </script>
 
 <svelte:head>
+  <meta
+    name="description"
+    content="The personal/portfolio site of Web Developer, Rory Hendrickson." />
   <meta name="color-scheme" content="dark light" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;600&display=swap"
-    rel="stylesheet" />
+    rel="preload"
+    as="font"
+    type="font/woff"
+    href="/fonts/ArchivoExpanded-Bold.woff"
+    crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,700&display=swap"
-    rel="stylesheet" />
+    rel="preload"
+    as="font"
+    type="font/woff2"
+    href="/fonts/space-grotesk-v10-latin-300.woff2"
+    crossorigin />
 </svelte:head>
 
 <header>
