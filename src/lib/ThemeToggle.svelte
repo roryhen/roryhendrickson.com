@@ -17,8 +17,6 @@
   });
 </script>
 
-<svelte:window on:load={() => document.body.classList.remove("preload")} />
-
 <svelte:head>
   <script>
     !(function () {
@@ -38,7 +36,7 @@
 
 <label class="toggle" style="--toggle-size: {size}; --toggle-pad: {pad};">
   <span class="sr-only">Light</span>
-  <input type="checkbox" bind:checked on:click={toggle} class="sr-only" />
+  <input type="checkbox" bind:checked on:click={toggle} />
   <span class="wrapper">
     <span class="handle">
       <svg
@@ -79,6 +77,7 @@
 
 <style lang="postcss">
   .toggle {
+    position: relative;
     font-size: 2rem;
     font-weight: bold;
     letter-spacing: -0.05em;
@@ -87,13 +86,14 @@
     line-height: 1;
   }
 
-  .toggle:focus-within {
-    outline: -webkit-focus-ring-color auto 1px;
-  }
-
   .toggle [type="checkbox"] {
-    visibility: hidden;
     position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    appearance: none;
+    background: transparent;
   }
 
   .wrapper,

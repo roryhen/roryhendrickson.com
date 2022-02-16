@@ -22,7 +22,15 @@
       open = false;
     }
   }
+
+  function removePreload() {
+    document.body.classList.remove("preload");
+    // For mobile safari :active state
+    document.addEventListener("touchstart", () => {}, { passive: true });
+  }
 </script>
+
+<svelte:window on:load={removePreload} />
 
 <svelte:head>
   <meta
