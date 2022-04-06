@@ -18,8 +18,10 @@ export async function get({ params }) {
 
   const html = filteredPost.post.default.render();
   const metadata = filteredPost.post.metadata;
+  const post = { ...metadata, ...html };
 
+  // Return prop to page
   return {
-    body: { ...metadata, ...html },
+    body: { post },
   };
 }

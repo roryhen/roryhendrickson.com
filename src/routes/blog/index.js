@@ -10,20 +10,20 @@ export async function get({ url }) {
     };
   }
 
-  const posts = [];
+  const foundPosts = [];
   for (const path in allPosts) {
     const post = allPosts[path];
     if (post) {
-      posts.push({ ...post.metadata });
+      foundPosts.push({ ...post.metadata });
     }
   }
 
-  const publishedPosts = posts
+  const posts = foundPosts
     .filter((post) => post.published)
     .slice(0, limit)
     .sort((a, b) => (new Date(a.date) > new Date(b.date) ? -1 : 1));
 
   return {
-    body: publishedPosts,
+    body: { posts },
   };
 }

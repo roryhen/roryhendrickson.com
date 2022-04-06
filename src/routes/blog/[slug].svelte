@@ -1,19 +1,4 @@
 <!-- src/routes/blog/[slug].svelte -->
-<script context="module">
-  /** @type {import('@sveltejs/kit').Load} */
-  export async function load({ params, fetch }) {
-    const res = await fetch(`/blog/${params.slug}.json`);
-    const post = await res.json();
-    if (res.ok && post.published) {
-      return { props: { post } };
-    }
-    return {
-      status: 404,
-      error: new Error("Post could not be found"),
-    };
-  }
-</script>
-
 <script>
   export let post;
 </script>
