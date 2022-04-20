@@ -86,6 +86,13 @@
       <svg viewBox="0 0 24 24" width="24" height="24"
         ><use href="/github.svg#icon" /></svg>
     </a>
+    <a
+      href="https://www.linkedin.com/in/rory-hendrickson-86096b98/"
+      rel="external">
+      <span class="sr-only">Rory's LinkedIn</span>
+      <svg viewBox="0 0 24 24" width="24" height="24"
+        ><use href="/linkedin.svg#icon" /></svg>
+    </a>
   </p>
   <p>
     <span class="copyright-c">&copy;</span>{new Date().getFullYear()} Rory Hendrickson

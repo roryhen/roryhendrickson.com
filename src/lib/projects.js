@@ -1,15 +1,16 @@
 import christykernsimage from "$lib/assets/christykerns.com_mock.png?width=500;1200&format=webp;png&srcset";
 import spacebarimage from "$lib/assets/spacebaragency.com_seo-audit_mock.png?width=500;1200&format=webp;png&srcset";
-import qotoimage from "$lib/assets/qoto.com_mock.png?width=500;1200&format=webp;png&srcset";
+import coffeedoseimage from "$lib/assets/coffeedose.cafe_mock.png?width=500;1200&format=webp;png&srcset";
+import iconbrowserimage from "$lib/assets/icon-browser_mock.png?width=500;1200&format=webp;png&srcset";
 
 export const projects = [
   {
-    site: "christykerns.com",
-    client: "Design Agency",
-    service: "WordPress Development",
+    site: "coffeedose.cafe",
+    client: "Coffee Shop",
+    service: "Shopify Development",
     notes:
-      "This was a completely custom build from scratch. Which is why WordPress was a good fit because it is so flexible. The design was very unique and required attention to detail and implementing different features: overlapping elements, layout changes based on device size, typography effects, scroll-based animations.",
-    image: christykernsimage,
+      "A popular coffee shop with a unique brand and multiple stores needed to build their site on Shopify. They had a thriving eCommerce store with specialized products. With a custom-built theme, I was able to effectively integrate their brand with site features such as a video hero section, newsletter modal with configurable timing, and map embeds",
+    image: coffeedoseimage,
   },
   {
     site: "spacebaragency.com",
@@ -20,11 +21,19 @@ export const projects = [
     image: spacebarimage,
   },
   {
-    site: "qoto.com",
-    client: "eCommerce Startup",
-    service: "Shopify Development",
+    site: "christykerns.com",
+    client: "Design Agency",
+    service: "WordPress Development",
     notes:
-      "A startup that needed a storefront for their high volume business, that would be capable of showcasing many products for online shoppers. I integrated their brand into a customized theme build, with features such as: an automatic carousel, rotating announcement banner, background video banner, and featured card design.",
-    image: qotoimage,
+      "This was a completely custom build from scratch. Which is why WordPress was a good fit because it is so flexible. The design was very unique and required attention to detail and implementing different features: overlapping elements, layout changes based on device size, typography effects, scroll-based animations.",
+    image: christykernsimage,
+  },
+  {
+    site: "design-flow.io",
+    client: "Design Inspiration",
+    service: "Web App Development",
+    notes:
+      "This was a side project for one of my clients. They wanted to build a community resource for designers. They tasked me with building an app to easily filter and choose icons for visitors. I used filtering, theming, pagintion, copy-paste functionality, and cloud storage for hosting icon assets.",
+    image: iconbrowserimage,
   },
 ];
