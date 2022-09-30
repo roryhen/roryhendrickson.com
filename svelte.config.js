@@ -3,18 +3,14 @@ import { mdsvex } from "mdsvex";
 import mdsvexConfig from "./mdsvex.config.js";
 import preprocess from "svelte-preprocess";
 import adapter from "@sveltejs/adapter-netlify";
-import { imagetools } from "vite-imagetools";
 
-const config = {
+export default {
   extensions: [".svelte", ...mdsvexConfig.extensions],
 
   kit: {
     adapter: adapter(),
     prerender: {
       entries: ["*"],
-    },
-    vite: {
-      plugins: [imagetools()],
     },
     trailingSlash: "always",
   },
@@ -26,5 +22,3 @@ const config = {
     mdsvex(mdsvexConfig),
   ],
 };
-
-export default config;

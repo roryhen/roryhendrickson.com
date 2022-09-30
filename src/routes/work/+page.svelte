@@ -1,4 +1,4 @@
-<!-- src/routes/work.svelte -->
+<!-- src/routes/work/+page.svelte -->
 <script>
   import { projects } from "$lib/projects.js";
 </script>

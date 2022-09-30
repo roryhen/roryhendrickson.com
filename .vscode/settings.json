@@ -2,14 +2,11 @@
   "[svelte]": {
     "editor.defaultFormatter": "svelte.svelte-vscode"
   },
-  "emmet.includeLanguages": {
-    "svelte": "html"
-  },
   "files.associations": {
-    ".svelte": "html",
-    ".svx": "md",
-    ".postcss": "css"
+    "*.svx": "md",
+    "*.css": "postcss"
   },
   "svelte.enable-ts-plugin": true,
-  "css.validate": false
+  "cssvar.files": ["./src/app.postcss"],
+  "cssvar.extensions": ["css", "postcss", "svelte"]
 }

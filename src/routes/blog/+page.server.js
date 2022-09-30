@@ -1,13 +1,15 @@
-/** @type {import('@sveltejs/kit').RequestHandler} */
-export async function get({ url }) {
-  const allPosts = import.meta.globEager("/src/lib/posts/*.{md,svx,svelte.md}");
+import { error } from "@sveltejs/kit";
+
+/** @type {import('@sveltejs/kit').PageLoad} */
+export function load({ url }) {
+  const allPosts = import.meta.glob("../../lib/posts/*.{md,svx,svelte.md}", {
+    eager: true,
+  });
 
   const limit = Number(url.searchParams.get("limit") ?? Infinity);
 
   if (Number.isNaN(limit)) {
-    return {
-      status: 400,
-    };
+    throw error(400, "Parsing error");
   }
 
   const foundPosts = [];
@@ -23,7 +25,9 @@ export async function get({ url }) {
     .slice(0, limit)
     .sort((a, b) => (new Date(a.date) > new Date(b.date) ? -1 : 1));
 
-  return {
-    body: { posts },
-  };
+  if (posts && posts.length > 0) {
+    return { posts };
+  }
+
+  throw error(404, "Not found");
 }

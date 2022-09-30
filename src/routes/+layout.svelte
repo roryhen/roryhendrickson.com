@@ -1,20 +1,11 @@
-<!-- src/routes/__layout.svelte -->
-<script context="module">
-  /** @type {import('@sveltejs/kit').Load} */
-  export const load = async ({ url }) => ({
-    props: {
-      key: url,
-    },
-  });
-</script>
-
+<!-- src/routes/+layout.svelte -->
 <script>
   import "../app.postcss";
   import MenuToggle from "$lib/MenuToggle.svelte";
   import ThemeToggle from "$lib/ThemeToggle.svelte";
   import PageTransition from "$lib/PageTransition.svelte";
-
-  export let key;
+  /** @type {import('./$types').PageData} */
+  export let data;
   let open = false;
 
   function hideMenu(event) {
@@ -57,9 +48,9 @@
       <use href="/rh-dev-logo.svg#icon" />
     </svg>
     <a href="/">Home</a>
-    <a sveltekit:prefetch href="/work/">Work</a>
-    <a sveltekit:prefetch href="/blog/">Blog</a>
-    <a sveltekit:prefetch href="/contact/">Contact</a>
+    <a data-sveltekit-prefetch href="/work/">Work</a>
+    <a data-sveltekit-prefetch href="/blog/">Blog</a>
+    <a data-sveltekit-prefetch href="/contact/">Contact</a>
     <ThemeToggle />
   </nav>
   <div class="mobile">
@@ -70,7 +61,7 @@
   </div>
 </header>
 
-<PageTransition refresh={key}>
+<PageTransition refresh={data.key}>
   <slot />
 </PageTransition>
 

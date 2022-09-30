@@ -1,4 +1,4 @@
-const config = {
+export default {
   extensions: [".svelte.md", ".md", ".svx"],
 
   smartypants: {
@@ -8,5 +8,3 @@ const config = {
   remarkPlugins: [],
   rehypePlugins: [],
 };
-
-export default config;

@@ -1,4 +1,4 @@
-<!-- src/routes/thank-you.svelte -->
+<!-- src/routes/thank-you/+page.svelte -->
 <svelte:head>
   <title>Thank You</title>
 </svelte:head>

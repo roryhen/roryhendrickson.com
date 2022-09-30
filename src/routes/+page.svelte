@@ -1,11 +1,11 @@
-<!-- src/routes/index.svelte -->
+<!-- src/routes/+page.svelte -->
 <script>
   import headshot from "$lib/assets/rory-headshot.png?width=360;760&format=webp;avif;png&srcset";
 </script>
 
 <svelte:head>
   <title>Rory Web Dev</title>
-  <link rel="preload" as="image" imagesrcset={headshot} />
+  <link rel="preload" as="image" imagesrcset="{headshot}" />
 </svelte:head>
 
 <h1>Welcome</h1>
@@ -14,14 +14,14 @@
   <div class="featured-image col-start-2">
     <div class="blob">
       <img
-        srcset={headshot}
+        srcset="{headshot}"
         alt="Headshot of Rory"
         decoding="async"
         width="764"
         height="892" />
     </div>
     <img
-      srcset={headshot}
+      srcset="{headshot}"
       alt="Headshot of Rory"
       decoding="async"
       width="764"
@@ -33,7 +33,7 @@
       out over the details. I build projects with experience and best practices
       in my toolbelt.
     </p>
-    <a sveltekit:prefetch href="/contact" class="button">Get in touch</a>
+    <a data-sveltekit-prefetch href="/contact" class="button">Get in touch</a>
   </div>
 </section>
 <section class="grid-col-two-three">
@@ -47,7 +47,7 @@
       Need some bugs fixed? Have an eCommerce website? Want to integrate a third
       party app with your current setup? I can help with that.
     </p>
-    <a sveltekit:prefetch href="/work" class="button">See my work</a>
+    <a data-sveltekit-prefetch href="/work" class="button">See my work</a>
   </div>
 </section>
 <section class="grid-col-three-two">
@@ -61,7 +61,7 @@
       I don't have room in my head for the various solutions and concepts I've
       learned while tooling around with tech, so I've documented some of it.
     </p>
-    <a sveltekit:prefetch href="/blog" class="button">Have a read</a>
+    <a data-sveltekit-prefetch href="/blog" class="button">Have a read</a>
   </div>
 </section>
 

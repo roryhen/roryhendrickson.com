@@ -1,6 +1,8 @@
-/** @type {import('@sveltejs/kit').RequestHandler} */
-export async function get({ params }) {
-  const allPosts = import.meta.globEager("/src/lib/posts/*.{md,svx,svelte.md}");
+/** @type {import('./$types').PageLoad} */
+export function load({ params }) {
+  const allPosts = import.meta.glob("../../../lib/posts/*.{md,svx,svelte.md}", {
+    eager: true,
+  });
 
   let posts = [];
   // Get the posts' slugs
@@ -21,7 +23,5 @@ export async function get({ params }) {
   const post = { ...metadata, ...html };
 
   // Return prop to page
-  return {
-    body: { post },
-  };
+  return { post };
 }

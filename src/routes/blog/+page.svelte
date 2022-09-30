@@ -1,6 +1,9 @@
-<!-- src/routes/blog/index.svelte -->
+<!-- src/routes/blog/+page.svelte -->
 <script>
-  export let posts;
+  /** @type {import('./$types').PageData} */
+  export let data;
+
+  let posts = data.posts;
 </script>
 
 <svelte:head>
@@ -14,7 +17,7 @@
   {#if post.published}
     <section>
       <article>
-        <a sveltekit:prefetch href="/blog/{post.slug}">
+        <a data-sveltekit-prefetch href="/blog/{post.slug}">
           <h2>{post.title}</h2>
         </a>
         <time datetime={post.date}>{post.date}</time>
@@ -29,11 +32,15 @@
 
 <!-- TODO: add proper pagination -->
 <style lang="postcss">
-  article p {
-    margin-block-end: 0;
-  }
-
-  article a span {
-    font-size: 1rem;
+  article {
+    & p {
+      margin-block-end: 0;
+    }
+    & a {
+      cursor: pointer;
+    }
+    & a span {
+      font-size: 1rem;
+    }
   }
 </style>

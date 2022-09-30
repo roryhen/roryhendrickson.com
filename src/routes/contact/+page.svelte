@@ -1,4 +1,4 @@
-<!-- src/routes/contact.svelte -->
+<!-- src/routes/contact/+page.svelte -->
 <svelte:head>
   <title>Contact</title>
 </svelte:head>

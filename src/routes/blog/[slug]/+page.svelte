@@ -1,6 +1,9 @@
-<!-- src/routes/blog/[slug].svelte -->
+<!-- src/routes/blog/[slug]/+page.svelte -->
 <script>
-  export let post;
+  /** @type {import('./$types').PageData} */
+  export let data;
+
+  let post = data.post;
 </script>
 
 <svelte:head>
