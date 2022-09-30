@@ -2,7 +2,6 @@ lockfileVersion: 5.4
 
 specifiers:
   '@sveltejs/adapter-netlify': 1.0.0-next.78
-  '@sveltejs/adapter-static': next
   '@sveltejs/kit': next
   cssnano: ^5.1.13
   eslint: ^8.24.0
@@ -20,7 +19,6 @@ specifiers:
 
 devDependencies:
   '@sveltejs/adapter-netlify': 1.0.0-next.78
-  '@sveltejs/adapter-static': 1.0.0-next.43
   '@sveltejs/kit': 1.0.0-next.505_svelte@3.50.1+vite@3.1.4
   cssnano: 5.1.13_postcss@8.4.16
   eslint: 8.24.0
@@ -316,10 +314,6 @@ packages:
       '@iarna/toml': 2.2.5
       esbuild: 0.15.10
       set-cookie-parser: 2.5.1
-    dev: true
-
-  /@sveltejs/adapter-static/1.0.0-next.43:
-    resolution: {integrity: sha512-PAgSp1GA8HkYE4p30/sBvJme2nefhcTBJafqQdMNoUksWZF2WzuL8OEO8wa9ndE6cghcGk3j6Ve0Oskg/wtTOw==}
     dev: true
 
   /@sveltejs/kit/1.0.0-next.505_svelte@3.50.1+vite@3.1.4:

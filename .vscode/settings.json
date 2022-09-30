@@ -8,5 +8,7 @@
   },
   "svelte.enable-ts-plugin": true,
   "cssvar.files": ["./src/app.postcss"],
-  "cssvar.extensions": ["css", "postcss", "svelte"]
+  "cssvar.extensions": ["css", "postcss", "svelte"],
+  "css.validate": false,
+  "stylelint.validate": ["css", "scss"]
 }
