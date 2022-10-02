@@ -7,6 +7,7 @@ specifiers:
   eslint: ^8.24.0
   eslint-plugin-svelte3: ^4.0.0
   mdsvex: ^0.10.6
+  pnpm: ^7.12.2
   postcss: ^8.4.16
   postcss-load-config: ^4.0.1
   postcss-preset-env: ^7.8.2
@@ -19,11 +20,12 @@ specifiers:
 
 devDependencies:
   '@sveltejs/adapter-netlify': 1.0.0-next.78
-  '@sveltejs/kit': 1.0.0-next.505_svelte@3.50.1+vite@3.1.4
+  '@sveltejs/kit': 1.0.0-next.507_svelte@3.50.1+vite@3.1.4
   cssnano: 5.1.13_postcss@8.4.16
   eslint: 8.24.0
   eslint-plugin-svelte3: 4.0.0_snydkosur25h6rjxszquwacaua
   mdsvex: 0.10.6_svelte@3.50.1
+  pnpm: 7.12.2
   postcss: 8.4.16
   postcss-load-config: 4.0.1_postcss@8.4.16
   postcss-preset-env: 7.8.2_postcss@8.4.16
@@ -316,8 +318,8 @@ packages:
       set-cookie-parser: 2.5.1
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.505_svelte@3.50.1+vite@3.1.4:
-    resolution: {integrity: sha512-vg2WvWiUB7useJZOKbdM8WOXv10WD7SVDER74IXd1t/TWb/uXHzwMQ/ZAsXZFdxQsz1cDGFub3iC76PW+j58Pg==}
+  /@sveltejs/kit/1.0.0-next.507_svelte@3.50.1+vite@3.1.4:
+    resolution: {integrity: sha512-GAgFb1yLUVOYPWXIPxh8j0iEjUOVvN42Xgsqf6j6j1Sb2/f0m0bC1O7eVbc8NQjNZIvgGuN8yxai188iIYQt7w==}
     engines: {node: '>=16.14'}
     hasBin: true
     requiresBuild: true
@@ -2078,6 +2080,12 @@ packages:
   /picomatch/2.3.1:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
     engines: {node: '>=8.6'}
+    dev: true
+
+  /pnpm/7.12.2:
+    resolution: {integrity: sha512-8QvnKANKN+YZXDmVYGI7zRJysdKldZI+w3AYnxu9IwtnLv1x6WuzrJr0nxMcTeuUAT908RjDqK+/6KJB9wNqxA==}
+    engines: {node: '>=14.6'}
+    hasBin: true
     dev: true
 
   /postcss-attribute-case-insensitive/5.0.2_postcss@8.4.16:
