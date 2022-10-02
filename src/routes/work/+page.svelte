@@ -14,7 +14,7 @@
   <section>
     <figure>
       <img
-        srcset={project.image}
+        srcset={project.image.replace(/\.\//g,"/")}
         alt="Site screenshot"
         decoding="async"
         width="1340"

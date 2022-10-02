@@ -629,8 +629,8 @@ packages:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
     dev: true
 
-  /color-string/1.9.0:
-    resolution: {integrity: sha512-9Mrz2AQLefkH1UvASKj6v6hj/7eWgjnT/cVsR8CumieLoT+g900exWeNogqtweI8dxloXN9BDQTYro1oWu/5CQ==}
+  /color-string/1.9.1:
+    resolution: {integrity: sha512-shrVawQFojnZv6xM40anx4CkoDP+fZsw/ZerEMsW/pyzsRbElpsL/DBVW7q3ExxwusdNXI3lXpuhEZkzs8p5Eg==}
     dependencies:
       color-name: 1.1.4
       simple-swizzle: 0.2.2
@@ -641,7 +641,7 @@ packages:
     engines: {node: '>=12.5.0'}
     dependencies:
       color-convert: 2.0.1
-      color-string: 1.9.0
+      color-string: 1.9.1
     dev: true
 
   /colord/2.9.2:
@@ -1912,8 +1912,8 @@ packages:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
 
-  /node-abi/3.8.0:
-    resolution: {integrity: sha512-tzua9qWWi7iW4I42vUPKM+SfaF0vQSLAm4yO5J83mSwB7GeoWrDKC/K+8YCnYNwqP5duwazbw2X9l4m8SC2cUw==}
+  /node-abi/3.25.0:
+    resolution: {integrity: sha512-p+0xx5ruIQ+8X57CRIMxbTZRT7tU0Tjn2C/aAK68AEMrbGsCo6IjnDdPNhEyyjWCT4bRtzomXchYd3sSgk3BJQ==}
     engines: {node: '>=10'}
     dependencies:
       semver: 7.3.7
@@ -2761,7 +2761,7 @@ packages:
       minimist: 1.2.6
       mkdirp-classic: 0.5.3
       napi-build-utils: 1.0.2
-      node-abi: 3.8.0
+      node-abi: 3.25.0
       pump: 3.0.0
       rc: 1.2.8
       simple-get: 4.0.1
