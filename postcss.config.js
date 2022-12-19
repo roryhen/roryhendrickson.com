@@ -9,11 +9,7 @@ export default {
       autoprefixer: true,
       features: {
         "custom-media-queries": {
-          importFrom: [
-            {
-              customMedia: { "--sm-vw": "(max-width: 720px)" },
-            },
-          ],
+          importFrom: ['src/app.postcss'],
         },
         "has-pseudo-class": true,
         "media-query-ranges": true,

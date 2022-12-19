@@ -4,7 +4,7 @@
   import MenuToggle from "$lib/MenuToggle.svelte";
   import ThemeToggle from "$lib/ThemeToggle.svelte";
   import PageTransition from "$lib/PageTransition.svelte";
-  /** @type {import('./$types').PageData} */
+  /** @type {import('./$types').LayoutData} */
   export let data;
   let open = false;
 
@@ -14,14 +14,17 @@
     }
   }
 
-  function removePreload() {
-    document.body.classList.remove("preload");
+  $: if(open) {
+    document.querySelector('.nav a').focus()
+  }
+
+  function afterLoad() {
     // For mobile safari :active state
     document.addEventListener("touchstart", () => {}, { passive: true });
   }
 </script>
 
-<svelte:window on:load={removePreload} />
+<svelte:window on:load={afterLoad} />
 
 <svelte:head>
   <meta
@@ -42,19 +45,19 @@
     crossorigin />
 </svelte:head>
 
-<header>
-  <nav on:click={hideMenu} class:open>
-    <svg viewBox="0 0 100 100" width="60" height="60">
+<header class="header">
+  <nav class="nav" on:click={hideMenu} on:keypress={() => {}} class:open>
+    <svg class="logo" viewBox="0 0 100 100" width="60" height="60">
       <use href="/rh-dev-logo.svg#icon" />
     </svg>
     <a href="/">Home</a>
-    <a data-sveltekit-prefetch href="/work/">Work</a>
-    <a data-sveltekit-prefetch href="/blog/">Blog</a>
-    <a data-sveltekit-prefetch href="/contact/">Contact</a>
+    <a href="/work/">Work</a>
+    <a href="/blog/">Blog</a>
+    <a href="/contact/">Contact</a>
     <ThemeToggle />
   </nav>
   <div class="mobile">
-    <svg viewBox="0 0 100 100" width="60" height="60">
+    <svg class="logo" viewBox="0 0 100 100" width="60" height="60">
       <use href="/rh-dev-logo.svg#icon" />
     </svg>
     <MenuToggle bind:open />
@@ -65,31 +68,31 @@
   <slot />
 </PageTransition>
 
-<footer>
+<footer class="footer">
   <p class="social">
     <a href="https://codepen.io/roryhen" rel="external">
       <span class="sr-only">Rory's Codepen</span>
-      <svg viewBox="0 0 24 24" width="24" height="24"
+      <svg class="icon" viewBox="0 0 24 24" width="24" height="24"
         ><use href="/codepen.svg#icon" /></svg>
     </a>
     <a href="https://github.com/roryhen" rel="external">
       <span class="sr-only">Rory's GitHub</span>
-      <svg viewBox="0 0 24 24" width="24" height="24"
+      <svg class="icon" viewBox="0 0 24 24" width="24" height="24"
         ><use href="/github.svg#icon" /></svg>
     </a>
     <a href="https://www.linkedin.com/in/rory-hendrickson/" rel="external">
       <span class="sr-only">Rory's LinkedIn</span>
-      <svg viewBox="0 0 24 24" width="24" height="24"
+      <svg class="icon" viewBox="0 0 24 24" width="24" height="24"
         ><use href="/linkedin.svg#icon" /></svg>
     </a>
   </p>
   <p>
-    <span class="copyright-c">&copy;</span>{new Date().getFullYear()} Rory Hendrickson
+    <span class="copy">&copy;</span>{new Date().getFullYear()} Rory Hendrickson
   </p>
 </footer>
 
 <style lang="postcss">
-  nav {
+  .nav {
     display: flex;
     flex-flow: row wrap;
     gap: 2.6rem;
@@ -97,10 +100,10 @@
     justify-content: space-between;
   }
 
-  header {
+  .header {
     padding: 2rem 0;
 
-    & svg {
+    & .logo {
       fill: var(--brand);
     }
 
@@ -109,7 +112,7 @@
     }
   }
 
-  footer {
+  .footer {
     align-self: center;
     padding: 3rem 0;
     text-align: center;
@@ -127,21 +130,21 @@
     justify-content: center;
     margin-block-end: 2rem;
 
-    & svg {
+    & .icon {
       width: 4.5rem;
       height: 4.5rem;
       fill: currentColor;
     }
   }
 
-  .copyright-c {
+  .copy {
     padding-inline-end: 0.1rem;
   }
 
   @media (--sm-vw) {
-    nav {
+    .nav {
       position: fixed;
-      inset: 0 0 0 0;
+      inset: 0;
       padding: 10vh 0;
       display: grid;
       grid-auto-rows: auto;
@@ -156,8 +159,8 @@
       pointer-events: none;
       transition: opacity 0.2s, transform 0.2s;
 
-      & svg,
-      & :global(label) {
+      & .logo,
+      & :global(.toggle) {
         margin-block: 1rem;
       }
     }

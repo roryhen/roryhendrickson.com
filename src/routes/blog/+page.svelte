@@ -17,7 +17,7 @@
   {#if post.published}
     <section>
       <article>
-        <a data-sveltekit-prefetch href="/blog/{post.slug}">
+        <a href="/blog/{post.slug}">
           <h2>{post.title}</h2>
         </a>
         <time datetime={post.date}>{post.date}</time>

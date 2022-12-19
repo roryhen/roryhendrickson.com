@@ -4,17 +4,28 @@
 
   export let size = "1em";
   export let pad = "0.15em";
-  export let checked = false;
+  export let dark = false;
+  let mounted = false
+  let transition = false
 
   function toggle() {
-    let theme = checked ? "light" : "dark";
-    document.firstElementChild.dataset.theme = theme;
-    localStorage.setItem("theme", theme);
+    dark = !dark
   }
 
-  onMount(() => {
-    checked = localStorage.theme === "dark";
+  $: if (mounted) {
+      let theme = dark ? "dark" : "light";
+      localStorage.setItem("theme", theme);
+      document.firstElementChild.dataset.theme = theme;
+    }
+
+  onMount(function () {
+    dark = localStorage.theme === "dark";
+    mounted = true
   });
+
+  function addTransition () {
+    transition = true
+  }
 </script>
 
 <svelte:head>
@@ -34,11 +45,9 @@
   </script>
 </svelte:head>
 
-<label class="toggle" style="--toggle-size: {size}; --toggle-pad: {pad};">
-  <span class="sr-only">Light</span>
-  <input type="checkbox" bind:checked on:click={toggle} />
-  <span class="wrapper">
-    <span class="handle">
+<button class="toggle" class:dark style="--toggle-size: {size}; --toggle-pad: {pad};" on:click={toggle}>
+    <span class="handle" class:mounted class:transition on:animationend={addTransition}>
+      <span class="sr-only">Light</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="icon icon-tabler-sun"
@@ -55,6 +64,7 @@
         <path
           d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" />
       </svg>
+      <span class="sr-only">Dark</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="icon icon-tabler-moon"
@@ -71,11 +81,17 @@
           d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
       </svg>
     </span>
-  </span>
-  <span class="sr-only">Dark</span>
-</label>
+</button>
 
 <style lang="postcss">
+  button {
+    all: unset;
+  }
+
+  button:focus-visible {
+    outline: -webkit-focus-ring-color auto 1px;
+  }
+  
   .toggle {
     position: relative;
     font-size: 2rem;
@@ -84,25 +100,6 @@
     user-select: none;
     cursor: pointer;
     line-height: 1;
-  }
-
-  .toggle [type="checkbox"] {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    appearance: none;
-    background: transparent;
-  }
-
-  .wrapper,
-  .handle {
-    display: inline-block;
-    border-radius: 2em;
-  }
-
-  .wrapper {
     box-sizing: content-box;
     width: calc(var(--toggle-size) * 2);
     height: auto;
@@ -111,21 +108,39 @@
     background: rgb(0 0 0 / 0.3);
   }
 
+  .toggle,
   .handle {
+    display: inline-block;
+    border-radius: 2em;
+  }
+
+  .handle {
+    opacity: 0;
     display: grid;
     place-items: center;
     height: var(--toggle-size);
     width: var(--toggle-size);
     background: rgb(255 255 255);
-    transition: transform 180ms ease;
     box-shadow: 0 0.25em 0.5em rgb(0 0 0 / 0.2);
   }
+  
+  .mounted {
+    animation: fadeIn 180ms ease-out forwards;
+  }
 
-  .toggle input:checked ~ .wrapper {
+  .transition {
+    transition: transform 180ms ease;
+  }
+  
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+
+  .dark {
     background: rgb(0 0 0 / 0.5);
   }
 
-  .toggle input:checked ~ .wrapper .handle {
+  .dark .handle {
     background: rgb(255 255 255 / 0.8);
     transform: translatex(100%);
   }
@@ -143,11 +158,11 @@
     stroke: var(--surface2);
   }
 
-  .toggle input:checked ~ .wrapper .icon-tabler-moon {
+  .dark .icon-tabler-moon {
     opacity: 1;
   }
 
-  .toggle input:checked ~ .wrapper .icon-tabler-sun {
+  .dark .icon-tabler-sun {
     opacity: 0;
   }
 </style>

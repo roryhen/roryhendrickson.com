@@ -14,7 +14,6 @@ export default {
     prerender: {
       entries: ["*"],
     },
-    trailingSlash: "always",
   },
 
   preprocess: [

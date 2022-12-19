@@ -33,7 +33,7 @@
       out over the details. I build projects with experience and best practices
       in my toolbelt.
     </p>
-    <a data-sveltekit-prefetch href="/contact" class="button">Get in touch</a>
+    <a href="/contact" class="button">Get in touch</a>
   </div>
 </section>
 <section class="grid-col-two-three">
@@ -47,7 +47,7 @@
       Need some bugs fixed? Have an eCommerce website? Want to integrate a third
       party app with your current setup? I can help with that.
     </p>
-    <a data-sveltekit-prefetch href="/work" class="button">See my work</a>
+    <a href="/work" class="button">See my work</a>
   </div>
 </section>
 <section class="grid-col-three-two">
@@ -61,7 +61,7 @@
       I don't have room in my head for the various solutions and concepts I've
       learned while tooling around with tech, so I've documented some of it.
     </p>
-    <a data-sveltekit-prefetch href="/blog" class="button">Have a read</a>
+    <a href="/blog" class="button">Have a read</a>
   </div>
 </section>
 
