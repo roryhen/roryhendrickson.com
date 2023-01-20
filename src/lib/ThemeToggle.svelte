@@ -23,7 +23,7 @@
     mounted = true
   });
 
-  function addTransition () {
+  function addTransition() {
     transition = true
   }
 </script>
