@@ -30,19 +30,19 @@
 <style lang="postcss">
   button {
     position: fixed;
-    bottom: 1.5rem;
-    right: 1.5rem;
-    line-height: 1;
-    padding: 0.3rem 0.8rem;
+    bottom: var(--size-5);
+    right: var(--size-5);
+    line-height: var(--font-lineheight-00);
+    padding: var(--size-2) var(--size-3);
     background: none;
     border: 0;
     cursor: pointer;
     display: grid;
-    z-index: 1;
+    z-index: var(--layer-1);
   }
 
   .left {
-    left: 1.5rem;
+    left: var(--size-5);
   }
 
   .three_dots {

@@ -1,6 +1,6 @@
 <!-- src/routes/work/+page.svelte -->
 <script>
-  import { projects } from "$lib/projects.js";
+  import { projects } from "$lib/data/projects.js";
 </script>
 
 <svelte:head>
@@ -14,12 +14,13 @@
   <section>
     <figure>
       <img
-        srcset={project.image.replace(/\.\//g,"/")}
+        srcset={project.image.replace(/\.\//g, "/")}
         alt="Site screenshot"
         decoding="async"
         width="1340"
         height="800"
-        loading={i > 0 ? "lazy" : "eager"} />
+        loading={i > 0 ? "lazy" : "eager"}
+      />
     </figure>
     <h2>Project #{i + 1}</h2>
     <ul class="card">
@@ -46,22 +47,23 @@
 <style lang="postcss">
   section {
     place-content: center;
-    gap: 2rem;
+    gap: var(--size-7);
   }
 
   h3 {
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     font-family: var(--body-font);
-    margin-block-end: 0.5rem;
-    letter-spacing: 0.1rem;
+    margin-block-end: var(--size-2);
+    letter-spacing: var(--font-letterspacing-4);
     text-transform: uppercase;
   }
 
   ul {
+    list-style-type: none;
     max-width: 40rem;
     margin: auto;
     display: flex;
     flex-flow: column;
-    gap: 1rem;
+    gap: var(--size-3);
   }
 </style>

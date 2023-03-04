@@ -13,7 +13,8 @@
     action="/thank-you"
     method="POST"
     data-netlify="true"
-    class="card">
+    class="card"
+  >
     <input type="hidden" name="form-name" value="contact" />
     <p class="form-row">
       <label for="name">Name</label>
@@ -35,8 +36,45 @@
 
 <style lang="postcss">
   form {
+    justify-self: center;
     width: 100%;
     max-width: 40rem;
-    margin: auto;
+    display: grid;
+    gap: var(--size-7);
+
+    @media (--sm-vw) {
+      gap: var(--size-5);
+    }
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--size-5);
+
+    @media (--sm-vw) {
+      grid-template: auto 1fr / minmax(0, 1fr);
+      gap: var(--size-2);
+    }
+
+    & label {
+      padding-block-start: var(--size-2);
+
+      @media (--sm-vw) {
+        padding-block-start: 0;
+      }
+    }
+
+    & :where(input, textarea, select) {
+      grid-column: span 3;
+    }
+  }
+
+  .submit .button {
+    grid-column: 4;
+
+    @media (--sm-vw) {
+      grid-column: 1;
+    }
   }
 </style>

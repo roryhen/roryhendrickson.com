@@ -5,27 +5,31 @@
 
 <svelte:head>
   <title>Rory Web Dev</title>
-  <link rel="preload" as="image" imagesrcset="{headshot}" />
+  <link rel="preload" as="image" imagesrcset={headshot} />
 </svelte:head>
 
 <h1>Welcome</h1>
 
 <section>
-  <div class="featured-image col-start-2">
+  <div class="section-bio">
     <div class="blob">
       <img
-        srcset="{headshot}"
+        class="bg-image"
+        srcset={headshot}
         alt="Headshot of Rory"
         decoding="async"
         width="764"
-        height="892" />
+        height="892"
+      />
     </div>
     <img
-      srcset="{headshot}"
+      class="fg-image"
+      srcset={headshot}
       alt="Headshot of Rory"
       decoding="async"
       width="764"
-      height="892" />
+      height="892"
+    />
   </div>
   <div class="content">
     <p>
@@ -36,7 +40,7 @@
     <a href="/contact" class="button">Get in touch</a>
   </div>
 </section>
-<section class="grid-col-two-three">
+<section class="section-work">
   <div class="icon-image work">
     <svg viewBox="0 0 32 32" width="100" height="100">
       <use href="/app-developer.svg#icon" />
@@ -50,7 +54,7 @@
     <a href="/work" class="button">See my work</a>
   </div>
 </section>
-<section class="grid-col-three-two">
+<section class="section-blog">
   <div class="icon-image blog">
     <svg viewBox="0 0 32 32" width="100" height="100">
       <use href="/build.svg#icon" />
@@ -67,24 +71,24 @@
 
 <style lang="postcss">
   section {
-    min-height: 50vh;
+    min-height: var(--size-15);
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     place-content: center;
     place-items: center stretch;
-    gap: 4rem;
+    gap: var(--size-9);
   }
 
-  .grid-col-two-three {
+  .section-work {
     grid-template-columns: 2fr 3fr;
   }
 
-  .grid-col-three-two {
+  .section-blog {
     grid-template-columns: 3fr 2fr;
   }
 
   p {
-    margin-block-end: 2rem;
+    margin-block-end: var(--size-7);
   }
 
   .col-start-2 {
@@ -95,26 +99,26 @@
     grid-row: 1;
   }
 
-  .featured-image {
+  .section-bio {
     --top-offset: 2.5rem;
-    position: relative;
+    display: grid;
 
     & .blob {
+      grid-area: 1 / 1;
       margin-block-start: var(--top-offset);
       background-color: var(--surface2);
       border-radius: var(--radius-blob-4);
       overflow: hidden;
+
+      & .bg-image {
+        margin-block-start: calc(var(--top-offset) * -1);
+        vertical-align: bottom;
+        object-fit: cover;
+      }
     }
 
-    & .blob img {
-      margin-block-start: calc(var(--top-offset) * -1);
-      vertical-align: bottom;
-      object-fit: cover;
-    }
-
-    & > img {
-      position: absolute;
-      top: 0;
+    & .fg-image {
+      grid-area: 1 / 1;
       clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
     }
   }
@@ -152,12 +156,12 @@
 
   @media (--sm-vw) {
     .content,
-    .featured-image,
+    .section-bio,
     .icon-image {
       grid-column: 1 / span 2;
     }
 
-    .featured-image,
+    .section-bio,
     .icon-image {
       margin-left: 10%;
       margin-right: 10%;

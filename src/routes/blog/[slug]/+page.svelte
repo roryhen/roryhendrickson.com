@@ -16,13 +16,13 @@
   <meta name="Description" content={post.description} />
 </svelte:head>
 
-<article>
-  <h1>{@html post.title}</h1>
+<article class="post">
+  <h1 class="title">{@html post.title}</h1>
   <div class="metadata">
-    <time datetime={post.date}>{post.date}</time>
+    <time class="date" datetime={post.date}>{post.date}</time>
     <div class="tags">
       {#each post.tags as tag}
-        <span>{tag}</span>
+        <span class="tag">{tag}</span>
       {/each}
     </div>
   </div>
@@ -36,42 +36,68 @@
 </nav>
 
 <style lang="postcss">
+  .title,
+  .post :global(:is(h2, h3, h4, h5, h6)) {
+    margin-block-end: var(--size-3);
+  }
+
+  .title {
+    overflow-wrap: break-word;
+  }
+
   .metadata {
     display: flex;
     flex-flow: row wrap;
-    gap: 1.5rem;
-    margin-block: 1rem 2rem;
+    gap: var(--size-5);
+    margin-block: var(--size-3) var(--size-7);
 
     @media (--sm-vw) {
-      gap: 0.5rem;
+      gap: var(--size-2);
+    }
+
+    & .date {
+      font-size: var(--font-size-2);
+      font-weight: 600;
+      letter-spacing: var(--font-letterspacing-4);
     }
   }
 
   .tags {
-    font-size: 1rem;
+    font-size: var(--font-size-1);
     display: flex;
     flex-flow: row wrap;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--size-2);
 
-    & span {
+    & .tag {
       display: inline-block;
-      padding: 0.3em 0.8em;
-      border-radius: 3em;
-      line-height: 1;
+      padding: 0.25em 0.75em;
+      border-radius: var(--radius-round);
+      line-height: var(--font-lineheight-00);
       background: var(--brand);
       color: var(--surface1);
     }
 
-    & span:hover,
-    & span:active {
+    & .tag:hover,
+    & .tag:active {
       filter: brightness(1.3);
     }
   }
 
   .pagination {
     display: flex;
-    gap: 3rem;
+    gap: var(--size-9);
     justify-content: center;
+  }
+
+  .post {
+    & :global(:where(p, ul, ol)) {
+      margin-block-end: var(--size-7);
+    }
+
+    & :global(:where(ul, ol)) {
+      list-style-type: disc;
+      padding-inline-start: var(--size-7);
+    }
   }
 </style>

@@ -14,8 +14,8 @@
     }
   }
 
-  $: if(open) {
-    document.querySelector('.nav a').focus()
+  $: if (open) {
+    document.querySelector(".nav a").focus();
   }
 
   function afterLoad() {
@@ -29,20 +29,23 @@
 <svelte:head>
   <meta
     name="description"
-    content="The personal/portfolio site of Web Developer, Rory Hendrickson." />
+    content="The personal/portfolio site of Web Developer, Rory Hendrickson."
+  />
   <meta name="color-scheme" content="dark light" />
   <link
     rel="preload"
     as="font"
     type="font/woff"
     href="/fonts/ArchivoExpanded-Bold.woff"
-    crossorigin />
+    crossorigin
+  />
   <link
     rel="preload"
     as="font"
     type="font/woff2"
     href="/fonts/space-grotesk-v10-latin-300.woff2"
-    crossorigin />
+    crossorigin
+  />
 </svelte:head>
 
 <header class="header">
@@ -73,17 +76,20 @@
     <a href="https://codepen.io/roryhen" rel="external">
       <span class="sr-only">Rory's Codepen</span>
       <svg class="icon" viewBox="0 0 24 24" width="24" height="24"
-        ><use href="/codepen.svg#icon" /></svg>
+        ><use href="/codepen.svg#icon" /></svg
+      >
     </a>
     <a href="https://github.com/roryhen" rel="external">
       <span class="sr-only">Rory's GitHub</span>
       <svg class="icon" viewBox="0 0 24 24" width="24" height="24"
-        ><use href="/github.svg#icon" /></svg>
+        ><use href="/github.svg#icon" /></svg
+      >
     </a>
     <a href="https://www.linkedin.com/in/rory-hendrickson/" rel="external">
       <span class="sr-only">Rory's LinkedIn</span>
       <svg class="icon" viewBox="0 0 24 24" width="24" height="24"
-        ><use href="/linkedin.svg#icon" /></svg>
+        ><use href="/linkedin.svg#icon" /></svg
+      >
     </a>
   </p>
   <p>
@@ -95,40 +101,76 @@
   .nav {
     display: flex;
     flex-flow: row wrap;
-    gap: 2.6rem;
+    gap: var(--size-3);
     align-items: center;
     justify-content: space-between;
+    font-size: var(--font-size-4);
+
+    @media (--sm-vw) {
+      position: fixed;
+      inset: 0;
+      padding: 10vh 0;
+      display: grid;
+      place-content: center;
+      justify-items: center;
+      gap: var(--size-7);
+      background: var(--surface1);
+      font-size: var(--font-size-5);
+
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(var(--size-3));
+      transition-property: all;
+      transition-duration: 0.3s;
+      transition-timing-function: var(--ease-out-3);
+
+      &.open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        z-index: var(--layer-1);
+      }
+
+      & .logo,
+      & :global(.toggle) {
+        margin-block: var(--size-3);
+      }
+    }
   }
 
   .header {
-    padding: 2rem 0;
+    padding: var(--size-7) 0;
+
+    @media (--sm-vw) {
+      padding-block: var(--size-7) 0;
+    }
 
     & .logo {
       fill: var(--brand);
-    }
-
-    @media (--sm-vw) {
-      padding-block: 2rem 0;
     }
   }
 
   .footer {
     align-self: center;
-    padding: 3rem 0;
+    padding: var(--size-8) 0;
     text-align: center;
-    font-size: 1rem;
+    font-size: var(--font-size-3);
   }
 
   .mobile {
     display: none;
+
+    @media (--sm-vw) {
+      display: block;
+    }
   }
 
   .social {
     display: flex;
     flex-flow: row wrap;
-    gap: 1rem;
+    gap: var(--size-3);
     justify-content: center;
-    margin-block-end: 2rem;
+    margin-block-end: var(--size-7);
 
     & .icon {
       width: 4.5rem;
@@ -138,42 +180,6 @@
   }
 
   .copy {
-    padding-inline-end: 0.1rem;
-  }
-
-  @media (--sm-vw) {
-    .nav {
-      position: fixed;
-      inset: 0;
-      padding: 10vh 0;
-      display: grid;
-      grid-auto-rows: auto;
-      place-content: center;
-      justify-items: center;
-      gap: 2rem;
-      background: var(--surface1);
-      font-size: 1.8rem;
-
-      opacity: 0;
-      transform: translateY(15px);
-      pointer-events: none;
-      transition: opacity 0.2s, transform 0.2s;
-
-      & .logo,
-      & :global(.toggle) {
-        margin-block: 1rem;
-      }
-    }
-
-    .open {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: all;
-      z-index: 1;
-    }
-
-    .mobile {
-      display: block;
-    }
+    padding-inline-end: var(--size-1);
   }
 </style>

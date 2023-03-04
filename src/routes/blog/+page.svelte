@@ -16,15 +16,13 @@
 {#each posts as post}
   {#if post.published}
     <section>
-      <article>
-        <a href="/blog/{post.slug}">
-          <h2>{post.title}</h2>
+      <article class="post">
+        <a class="link" href="/blog/{post.slug}">
+          <h2 class="heading">{post.title}</h2>
         </a>
-        <time datetime={post.date}>{post.date}</time>
-        <p>{post.description}</p>
-        <a href="/blog/{post.slug}/">
-          <span>Read more &gt;</span>
-        </a>
+        <time class="date" datetime={post.date}>{post.date}</time>
+        <p class="desc">{post.description}</p>
+        <a class="link more" href="/blog/{post.slug}/"> Read more &gt; </a>
       </article>
     </section>
   {/if}
@@ -32,15 +30,30 @@
 
 <!-- TODO: add proper pagination -->
 <style lang="postcss">
-  article {
-    & p {
-      margin-block-end: 0;
+  .heading {
+    margin-block-end: var(--size-2);
+  }
+
+  .date {
+    font-size: var(--font-size-2);
+    font-weight: var(--font-weight-6);
+    letter-spacing: var(--font-letterspacing-4);
+    color: var(--text1);
+
+    @media (--sm-vw) {
+      font-size: var(--font-size-1);
     }
-    & a {
-      cursor: pointer;
-    }
-    & a span {
-      font-size: 1rem;
-    }
+  }
+
+  .desc {
+    margin-block-end: 0;
+  }
+
+  .link {
+    cursor: pointer;
+  }
+
+  .more {
+    font-size: var(--font-size-2);
   }
 </style>

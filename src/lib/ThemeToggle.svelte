@@ -94,7 +94,7 @@
   
   .toggle {
     position: relative;
-    font-size: 2rem;
+    font-size: var(--font-size-5);
     font-weight: bold;
     letter-spacing: -0.05em;
     user-select: none;
