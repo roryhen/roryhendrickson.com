@@ -1,4 +1,3 @@
-<!-- src/routes/blog/+page.svelte -->
 <script>
   /** @type {import('./$types').PageData} */
   export let data;

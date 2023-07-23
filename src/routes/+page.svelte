@@ -1,11 +1,14 @@
-<!-- src/routes/+page.svelte -->
 <script>
-  import headshot from "$lib/assets/rory-headshot.png?width=360;760&format=webp;avif;png&srcset";
+  import webpSrcset from "$lib/assets/rory-headshot.png?width=360;760&format=webp&as=srcset"
+  import pngSrcset from "$lib/assets/rory-headshot.png?width=360;760&as=srcset"
+
+  let sizes = "(min-width: 720px) 50vw, 100vw"
 </script>
 
 <svelte:head>
   <title>Rory Web Dev</title>
-  <link rel="preload" as="image" imagesrcset={headshot} />
+  <link rel="preload" as="image" imagesrcset={webpSrcset} />
+  <link rel="preload" as="image" imagesrcset={pngSrcset} />
 </svelte:head>
 
 <h1>Welcome</h1>
@@ -13,23 +16,41 @@
 <section>
   <div class="section-bio">
     <div class="blob">
-      <img
-        class="bg-image"
-        srcset={headshot}
-        alt="Headshot of Rory"
-        decoding="async"
+      <picture>
+        <source
+          width="764"
+          height="892"
+          srcset={webpSrcset}
+          type="image/webp"
+          {sizes} />
+        <img
+          class="bg-image"
+          alt="Headshot of Rory"
+          width="764"
+          height="892"
+          srcset={pngSrcset}
+          {sizes}
+          decoding="async"
+          loading="eager" />
+      </picture>
+    </div>
+    <picture class="fg-picture">
+      <source
         width="764"
         height="892"
-      />
-    </div>
-    <img
-      class="fg-image"
-      srcset={headshot}
-      alt="Headshot of Rory"
-      decoding="async"
-      width="764"
-      height="892"
-    />
+        srcset={webpSrcset}
+        type="image/webp"
+        {sizes} />
+      <img
+        class="fg-image"
+        alt="Headshot of Rory"
+        width="764"
+        height="892"
+        srcset={pngSrcset}
+        {sizes}
+        decoding="async"
+        loading="eager" />
+    </picture>
   </div>
   <div class="content">
     <p>
@@ -109,17 +130,22 @@
       background-color: var(--surface2);
       border-radius: var(--radius-blob-4);
       overflow: hidden;
+    }
 
-      & .bg-image {
-        margin-block-start: calc(var(--top-offset) * -1);
-        vertical-align: bottom;
-        object-fit: cover;
-      }
+    & .fg-picture {
+      grid-area: 1 / 1;
+    }
+
+    & .bg-image {
+      height: calc(var(--top-offset) + 100%);
+      margin-block-start: calc(var(--top-offset) * -1);
+      object-fit: cover;
     }
 
     & .fg-image {
-      grid-area: 1 / 1;
+      height: 100%;
       clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+      object-fit: cover;
     }
   }
 

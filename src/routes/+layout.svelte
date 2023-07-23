@@ -1,4 +1,3 @@
-<!-- src/routes/+layout.svelte -->
 <script>
   import "../app.postcss";
   import MenuToggle from "$lib/MenuToggle.svelte";

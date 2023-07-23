@@ -1,6 +1,5 @@
-<!-- src/routes/work/+page.svelte -->
 <script>
-  import { projects } from "$lib/data/projects.js";
+  import { projects } from "$lib/data/projects.js"
 </script>
 
 <svelte:head>
@@ -12,16 +11,21 @@
 
 {#each projects as project, i}
   <section>
-    <figure>
+    <picture>
+      <source
+        width="1340"
+        height="800"
+        srcset={project.image}
+        type="image/webp" />
       <img
-        srcset={project.image.replace(/\.\//g, "/")}
-        alt="Site screenshot"
+        srcset={project.fallbackImage}
+        alt={`Site screenshot of ${project.site}`}
         decoding="async"
         width="1340"
         height="800"
         loading={i > 0 ? "lazy" : "eager"}
-      />
-    </figure>
+        sizes="(min-width: 1024px) 800px, 100vw" />
+    </picture>
     <h2>Project #{i + 1}</h2>
     <ul class="card">
       <li>

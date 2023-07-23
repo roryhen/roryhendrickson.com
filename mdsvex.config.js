@@ -1,3 +1,4 @@
+/** @type {import('mdsvex').MdsvexCompileOptions} */
 export default {
   extensions: [".svelte.md", ".md", ".svx"],
 
@@ -7,4 +8,4 @@ export default {
 
   remarkPlugins: [],
   rehypePlugins: [],
-};
+}
