@@ -8,7 +8,7 @@ const dev = process.env.NODE_ENV === "development"
 export default {
   plugins: [
     globalData({
-      files: ["./src/app.postcss"],
+      files: ["./src/media.css"],
     }),
     presetEnv({
       autoprefixer: true,

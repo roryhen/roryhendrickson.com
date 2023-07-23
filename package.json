@@ -1,13 +1,12 @@
 {
   "name": "my-portfolio-blog-site",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "scripts": {
     "dev": "vite dev",
     "prebuild": "test \"$CI\" = true && npx pnpm install --store=node_modules/.pnpm-store || echo skipping pnpm install",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint --ignore-path .gitignore .",
-    "prepend": "sh prepend_file_path.sh"
+    "lint": "eslint --ignore-path .gitignore ."
   },
   "devDependencies": {
     "@csstools/postcss-global-data": "^2.0.0",

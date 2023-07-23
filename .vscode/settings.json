@@ -7,8 +7,8 @@
     "*.css": "postcss"
   },
   "svelte.enable-ts-plugin": true,
-  "cssvar.files": ["./src/app.postcss", "./node_modules/open-props/src/*.css"],
-  "cssvar.extensions": ["css", "postcss", "svelte"],
+  "cssvar.files": ["./src/app.css", "./node_modules/open-props/src/*.css"],
+  "cssvar.extensions": ["css", "svelte"],
   "css.validate": false,
   "stylelint.validate": ["css", "scss"]
 }

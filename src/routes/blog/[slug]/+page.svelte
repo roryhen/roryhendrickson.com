@@ -1,9 +1,8 @@
-<!-- src/routes/blog/[slug]/+page.svelte -->
 <script>
   /** @type {import('./$types').PageData} */
-  export let data;
+  export let data
 
-  let post = data.post;
+  let post = data.post
 </script>
 
 <svelte:head>
@@ -17,6 +16,7 @@
 </svelte:head>
 
 <article class="post">
+  <!-- eslint-disable-next-line svelte/no-at-html-tags -->
   <h1 class="title">{@html post.title}</h1>
   <div class="metadata">
     <time class="date" datetime={post.date}>{post.date}</time>
@@ -27,6 +27,7 @@
     </div>
   </div>
 
+  <!-- eslint-disable-next-line svelte/no-at-html-tags -->
   {@html post.html}
 </article>
 

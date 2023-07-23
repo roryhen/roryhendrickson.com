@@ -2,7 +2,7 @@
 export default {
   overrides: [
     {
-      files: ["**/*.postcss", "**/*.css"],
+      files: ["**/*.css"],
       customSyntax: "postcss-html",
     },
   ],

@@ -1,7 +1,5 @@
 @import "open-props/postcss/style";
 
-@custom-media --sm-vw (max-width: 720px);
-
 /* Resets */
 * {
   margin: 0;

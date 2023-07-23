@@ -1,25 +1,25 @@
 <script>
-  import "../app.postcss";
-  import MenuToggle from "$lib/MenuToggle.svelte";
-  import ThemeToggle from "$lib/ThemeToggle.svelte";
-  import PageTransition from "$lib/PageTransition.svelte";
+  import "../app.css"
+  import MenuToggle from "$lib/MenuToggle.svelte"
+  import ThemeToggle from "$lib/ThemeToggle.svelte"
+  import PageTransition from "$lib/PageTransition.svelte"
   /** @type {import('./$types').LayoutData} */
-  export let data;
-  let open = false;
+  export let data
+  let open = false
 
   function hideMenu(event) {
     if (event.target.matches("a")) {
-      open = false;
+      open = false
     }
   }
 
   $: if (open) {
-    document.querySelector(".nav a").focus();
+    document.querySelector(".nav a")?.focus()
   }
 
   function afterLoad() {
     // For mobile safari :active state
-    document.addEventListener("touchstart", () => {}, { passive: true });
+    document.addEventListener("touchstart", () => {}, { passive: true })
   }
 </script>
 
@@ -28,34 +28,31 @@
 <svelte:head>
   <meta
     name="description"
-    content="The personal/portfolio site of Web Developer, Rory Hendrickson."
-  />
+    content="The personal/portfolio site of Web Developer, Rory Hendrickson." />
   <meta name="color-scheme" content="dark light" />
   <link
     rel="preload"
     as="font"
     type="font/woff"
     href="/fonts/ArchivoExpanded-Bold.woff"
-    crossorigin
-  />
+    crossorigin="anonymous" />
   <link
     rel="preload"
     as="font"
     type="font/woff2"
     href="/fonts/space-grotesk-v10-latin-300.woff2"
-    crossorigin
-  />
+    crossorigin="anonymous" />
 </svelte:head>
 
 <header class="header">
-  <nav class="nav" on:click={hideMenu} on:keypress={() => {}} class:open>
+  <nav class="nav" class:open>
     <svg class="logo" viewBox="0 0 100 100" width="60" height="60">
       <use href="/rh-dev-logo.svg#icon" />
     </svg>
-    <a href="/">Home</a>
-    <a href="/work/">Work</a>
-    <a href="/blog/">Blog</a>
-    <a href="/contact/">Contact</a>
+    <a on:click={hideMenu} href="/">Home</a>
+    <a on:click={hideMenu} href="/work/">Work</a>
+    <a on:click={hideMenu} href="/blog/">Blog</a>
+    <a on:click={hideMenu} href="/contact/">Contact</a>
     <ThemeToggle />
   </nav>
   <div class="mobile">
@@ -75,20 +72,17 @@
     <a href="https://codepen.io/roryhen" rel="external">
       <span class="sr-only">Rory's Codepen</span>
       <svg class="icon" viewBox="0 0 24 24" width="24" height="24"
-        ><use href="/codepen.svg#icon" /></svg
-      >
+        ><use href="/codepen.svg#icon" /></svg>
     </a>
     <a href="https://github.com/roryhen" rel="external">
       <span class="sr-only">Rory's GitHub</span>
       <svg class="icon" viewBox="0 0 24 24" width="24" height="24"
-        ><use href="/github.svg#icon" /></svg
-      >
+        ><use href="/github.svg#icon" /></svg>
     </a>
     <a href="https://www.linkedin.com/in/rory-hendrickson/" rel="external">
       <span class="sr-only">Rory's LinkedIn</span>
       <svg class="icon" viewBox="0 0 24 24" width="24" height="24"
-        ><use href="/linkedin.svg#icon" /></svg
-      >
+        ><use href="/linkedin.svg#icon" /></svg>
     </a>
   </p>
   <p>
