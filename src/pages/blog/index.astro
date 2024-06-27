@@ -1,0 +1,61 @@
+---
+import RootLayout from "@/components/RootLayout.astro";
+import { getCollection } from "astro:content";
+
+const blogPosts = await getCollection("blog", ({ data }) =>
+  import.meta.env.PROD ? data.published : true,
+);
+---
+
+<RootLayout head={{ title: "Blog" }}>
+  <h1>Blog</h1>
+  <p>Thoughts and some technical documentation.</p>
+
+  {
+    blogPosts.map(({ data, slug }) => (
+      <section>
+        <article class="post">
+          <a class="link" href={`/blog/${slug}`}>
+            <h2 class="heading">{data.title}</h2>
+          </a>
+          <time class="date" datetime={data.date}>
+            {data.date}
+          </time>
+          <p class="desc">{data.description}</p>
+          <a class="link more" href={`/blog/${slug}`}>
+            Read more &gt;
+          </a>
+        </article>
+      </section>
+    ))
+  }
+
+  <style>
+    .heading {
+      margin-block-end: var(--size-2);
+    }
+
+    .date {
+      font-size: var(--font-size-2);
+      font-weight: var(--font-weight-6);
+      letter-spacing: var(--font-letterspacing-4);
+      color: var(--text1);
+
+      @media (max-width: 720px) {
+        font-size: var(--font-size-1);
+      }
+    }
+
+    .desc {
+      margin-block-end: 0;
+    }
+
+    .link {
+      cursor: pointer;
+    }
+
+    .more {
+      font-size: var(--font-size-2);
+    }
+  </style>
+</RootLayout>

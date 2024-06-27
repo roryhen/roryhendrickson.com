@@ -1,0 +1,68 @@
+---
+import "src/styles/global.css";
+import Header from "./Header.astro";
+import Footer from "./Footer.astro";
+import Helmet from "astro-helmet";
+import type { HeadItems } from "astro-helmet";
+import ViewTransitions from "astro/components/ViewTransitions.astro";
+
+interface Props {
+  head?: HeadItems;
+}
+
+const animation = {
+  old: {
+    name: "slideDown",
+    duration: "0.5s",
+    easing: "cubic-bezier(0.16, 1, 0.3, 1)",
+    fillMode: "forwards",
+  },
+  new: {
+    name: "slideUp",
+    duration: "0.5s",
+    easing: "cubic-bezier(0.16, 1, 0.3, 1)",
+    fillMode: "forwards",
+  },
+};
+
+const slideVert = {
+  forwards: animation,
+  backwards: animation,
+};
+
+let { head } = Astro.props;
+let pageHeadItems = head || {};
+
+const layoutHeadItems: HeadItems = {
+  title: "Rory's Web Dev",
+  meta: [
+    { charset: "utf-8" },
+    { name: "viewport", content: "width=device-width, initial-scale=1" },
+    {
+      name: "description",
+      content:
+        "The personal/portfolio site of Web Developer, Rory Hendrickson.",
+    },
+    { name: "color-scheme", content: "dark light" },
+    { property: "og:type", content: "website" },
+  ],
+  link: [
+    { rel: "icon", type: "image/png", href: "/favicon.png" },
+    { rel: "sitemap", href: "/sitemap-index.xml" },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <Helmet headItems={[layoutHeadItems, pageHeadItems]} />
+
+  <body class="app">
+    <Header />
+    <main transition:animate={slideVert}>
+      <slot />
+    </main>
+    <Footer />
+    <ViewTransitions />
+  </body>
+</html>

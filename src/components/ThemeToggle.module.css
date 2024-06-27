@@ -1,0 +1,80 @@
+.button {
+  all: unset;
+}
+
+.button:focus-visible {
+  outline: -webkit-focus-ring-color auto 1px;
+}
+
+.toggle {
+  position: relative;
+  font-size: var(--font-size-5);
+  font-weight: bold;
+  letter-spacing: -0.05em;
+  user-select: none;
+  cursor: pointer;
+  line-height: 1;
+  box-sizing: content-box;
+  width: calc(var(--toggle-size) * 2);
+  height: auto;
+  padding: var(--toggle-pad);
+  vertical-align: calc(var(--toggle-pad) * -0.8);
+  background: rgb(0 0 0 / 0.3);
+}
+
+.toggle,
+.handle {
+  display: inline-block;
+  border-radius: 2em;
+}
+
+.handle {
+  opacity: 0;
+  display: grid;
+  place-items: center;
+  height: var(--toggle-size);
+  width: var(--toggle-size);
+  background: rgb(255 255 255);
+  box-shadow: 0 0.25em 0.5em rgb(0 0 0 / 0.2);
+  animation: fadeIn 180ms ease-out forwards;
+}
+
+.transition {
+  transition: transform 180ms ease;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.dark {
+  background: rgb(0 0 0 / 0.5);
+}
+
+.dark .handle {
+  background: rgb(255 255 255 / 0.8);
+  transform: translatex(100%);
+}
+
+.icon {
+  grid-area: 1/1;
+  width: 80%;
+  height: 80%;
+  stroke: var(--brand);
+  transition: opacity 250ms;
+}
+
+.iconMoon {
+  opacity: 0;
+  stroke: var(--surface2);
+}
+
+.dark .iconMoon {
+  opacity: 1;
+}
+
+.dark .iconSun {
+  opacity: 0;
+}

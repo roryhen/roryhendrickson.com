@@ -1,3 +1,3 @@
 # roryhendrickson.com
 
-My personal website with my portfolio and blog. Created with [SvelteKit](https://github.com/sveltejs/kit) and [MDsveX](https://github.com/pngwn/mdsvex).
+My personal website with my portfolio and blog. Created with [Astro](https://github.com/withastro/astro) and [Solid JS](https://github.com/solidjs/solid).

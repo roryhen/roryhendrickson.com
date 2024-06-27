@@ -1,0 +1,52 @@
+<footer class="footer">
+  <p class="social">
+    <a href="https://codepen.io/roryhen" rel="external">
+      <span class="sr-only">Rory's Codepen</span>
+      <svg class="icon" viewBox="0 0 24 24" width="24" height="24"
+        ><use href="/codepen.svg#icon"></use></svg
+      >
+    </a>
+    <a href="https://github.com/roryhen" rel="external">
+      <span class="sr-only">Rory's GitHub</span>
+      <svg class="icon" viewBox="0 0 24 24" width="24" height="24"
+        ><use href="/github.svg#icon"></use></svg
+      >
+    </a>
+    <a href="https://www.linkedin.com/in/rory-hendrickson/" rel="external">
+      <span class="sr-only">Rory's LinkedIn</span>
+      <svg class="icon" viewBox="0 0 24 24" width="24" height="24"
+        ><use href="/linkedin.svg#icon"></use></svg
+      >
+    </a>
+  </p>
+  <p>
+    <span class="copy">&copy;</span>{new Date().getFullYear()} Rory Hendrickson
+  </p>
+</footer>
+
+<style>
+  .footer {
+    align-self: center;
+    padding: var(--size-8) 0;
+    text-align: center;
+    font-size: var(--font-size-3);
+  }
+
+  .social {
+    display: flex;
+    flex-flow: row wrap;
+    gap: var(--size-3);
+    justify-content: center;
+    margin-block-end: var(--size-7);
+
+    & .icon {
+      width: 4.5rem;
+      height: 4.5rem;
+      fill: currentColor;
+    }
+  }
+
+  .copy {
+    padding-inline-end: var(--size-1);
+  }
+</style>

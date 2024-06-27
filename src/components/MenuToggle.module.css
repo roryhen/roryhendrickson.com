@@ -1,0 +1,31 @@
+.button {
+  position: fixed;
+  bottom: var(--size-5);
+  right: var(--size-5);
+  line-height: var(--font-lineheight-00);
+  padding: var(--size-2) var(--size-3);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  display: grid;
+  z-index: var(--layer-1);
+}
+
+.left {
+  left: var(--size-5);
+}
+
+.three_dots {
+  fill: var(--text2);
+  transition: transform 0.3s;
+  transform-origin: center;
+  transform: rotate(0);
+}
+
+.open .three_dots {
+  transform: rotate(45deg);
+}
+
+.open .three_dots:nth-child(2) {
+  transform: rotate(-45deg);
+}

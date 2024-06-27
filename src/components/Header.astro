@@ -1,0 +1,85 @@
+---
+import { MenuToggle } from "./MenuToggle";
+import { ThemeToggle } from "./ThemeToggle";
+---
+
+<header class="header">
+  <nav class="nav">
+    <svg class="logo" viewBox="0 0 100 100" width="60" height="60">
+      <use href="/rh-dev-logo.svg#icon"></use>
+    </svg>
+    <a href="/">Home</a>
+    <a href="/work/">Work</a>
+    <a href="/blog/">Blog</a>
+    <a href="/contact/">Contact</a>
+    <ThemeToggle client:load />
+  </nav>
+  <div class="mobile">
+    <svg class="logo" viewBox="0 0 100 100" width="60" height="60">
+      <use href="/rh-dev-logo.svg#icon"></use>
+    </svg>
+    <MenuToggle client:load />
+  </div>
+</header>
+
+<style>
+  .nav {
+    display: flex;
+    flex-flow: row wrap;
+    gap: var(--size-3);
+    align-items: center;
+    justify-content: space-between;
+    font-size: var(--font-size-4);
+
+    @media (max-width: 720px) {
+      position: fixed;
+      inset: 0;
+      padding: 10vh 0;
+      display: grid;
+      place-content: center;
+      justify-items: center;
+      gap: var(--size-7);
+      background: var(--surface1);
+      font-size: var(--font-size-5);
+
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(var(--size-3));
+      transition-property: all;
+      transition-duration: 0.3s;
+      transition-timing-function: var(--ease-out-3);
+
+      &.open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        z-index: var(--layer-1);
+      }
+
+      & .logo,
+      & :global(.toggle) {
+        margin-block: var(--size-3);
+      }
+    }
+  }
+
+  .header {
+    padding: var(--size-7) 0;
+
+    @media (max-width: 720px) {
+      padding-block: var(--size-7) 0;
+    }
+
+    & .logo {
+      fill: var(--brand);
+    }
+  }
+
+  .mobile {
+    display: none;
+
+    @media (max-width: 720px) {
+      display: block;
+    }
+  }
+</style>

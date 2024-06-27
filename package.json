@@ -1,34 +1,31 @@
 {
-  "name": "my-portfolio-blog-site",
-  "version": "0.0.4",
+  "name": "roryhendrickson.com",
+  "version": "0.1.0",
+  "type": "module",
   "scripts": {
-    "dev": "vite dev",
-    "prebuild": "test \"$CI\" = true && npx pnpm install --store=node_modules/.pnpm-store || echo skipping pnpm install",
-    "build": "vite build",
-    "preview": "vite preview",
-    "lint": "eslint --ignore-path .gitignore ."
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "lint": "eslint --ext .js,.ts,.astro --fix src"
+  },
+  "dependencies": {
+    "@astrojs/solid-js": "^4.4.0",
+    "astro": "^4.11.3",
+    "astro-helmet": "^1.0.2",
+    "solid-js": "^1.8.17"
   },
   "devDependencies": {
-    "@csstools/postcss-global-data": "^2.0.0",
-    "@sveltejs/adapter-netlify": "2.0.8",
-    "@sveltejs/kit": "1.22.3",
-    "cssnano": "^6.0.1",
-    "eslint": "^8.45.0",
-    "eslint-plugin-svelte": "^2.32.4",
-    "imagetools-core": "^4.0.3",
-    "mdsvex": "^0.11.0",
-    "open-props": "^1.5.10",
-    "postcss": "^8.4.27",
-    "postcss-load-config": "^4.0.1",
-    "postcss-preset-env": "^9.0.0",
-    "prettier": "^3.0.0",
-    "prettier-plugin-svelte": "^3.0.0",
-    "stylelint": "^15.10.2",
-    "svelte": "^4.1.1",
-    "svelte-preprocess": "^5.0.4",
-    "vite": "^4.4.6",
-    "vite-imagetools": "^5.0.5"
+    "@typescript-eslint/parser": "^7.14.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-astro": "^1.2.2",
+    "open-props": "^1.7.4",
+    "postcss-jit-props": "^1.0.14",
+    "prettier": "^3.3.2",
+    "prettier-plugin-astro": "^0.14.0",
+    "sharp": "^0.33.4"
   },
-  "type": "module",
-  "browserslist": "defaults"
+  "browserslist": [
+    "defaults"
+  ]
 }
