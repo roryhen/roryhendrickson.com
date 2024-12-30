@@ -4,7 +4,7 @@ import Header from "./Header.astro";
 import Footer from "./Footer.astro";
 import Helmet from "astro-helmet";
 import type { HeadItems } from "astro-helmet";
-import ViewTransitions from "astro/components/ViewTransitions.astro";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
   head?: HeadItems;
@@ -63,6 +63,6 @@ const layoutHeadItems: HeadItems = {
       <slot />
     </main>
     <Footer />
-    <ViewTransitions />
+    <ClientRouter />
   </body>
 </html>
