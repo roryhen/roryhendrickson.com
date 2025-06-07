@@ -15,13 +15,11 @@ const animation = {
     name: "slideDown",
     duration: "0.5s",
     easing: "cubic-bezier(0.16, 1, 0.3, 1)",
-    fillMode: "forwards",
   },
   new: {
     name: "slideUp",
     duration: "0.5s",
     easing: "cubic-bezier(0.16, 1, 0.3, 1)",
-    fillMode: "forwards",
   },
 };
 
@@ -55,14 +53,19 @@ const layoutHeadItems: HeadItems = {
 
 <!doctype html>
 <html lang="en">
-  <Helmet headItems={[layoutHeadItems, pageHeadItems]} />
+  <head>
+    <Helmet
+      headItems={[layoutHeadItems, pageHeadItems]}
+      options={{ omitHeadTags: true }}
+    />
+    <ClientRouter />
+  </head>
 
   <body class="app">
     <Header />
-    <main transition:animate={slideVert}>
+    <main transition:animate={slideVert} transition:name="main">
       <slot />
     </main>
     <Footer />
-    <ClientRouter />
   </body>
 </html>

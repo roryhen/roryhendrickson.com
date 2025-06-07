@@ -1,5 +1,6 @@
 import { createEffect, createSignal, onMount } from "solid-js";
 import ss from "./ThemeToggle.module.css";
+import { cl } from "@/lib/utils";
 
 export function ThemeToggle() {
   let [theme, setTheme] = createSignal<"light" | "dark">("light");
@@ -28,16 +29,12 @@ export function ThemeToggle() {
 
   return (
     <button
-      classList={{
-        [ss.button]: true,
-        [ss.toggle]: true,
-        [ss.dark]: theme() === "dark",
-      }}
+      class={cl(ss.button, ss.toggle, theme() === "dark" && ss.dark)}
       style="--toggle-size: 1em; --toggle-pad: 0.15em;"
       onClick={toggle}
     >
       <span
-        classList={{ [ss.handle]: true, [ss.transition]: hasTransition() }}
+        classList={{ [ss.handle!]: true, [ss.transition!]: hasTransition() }}
         onAnimationEnd={addTransition}
       >
         <span class="sr-only">Light</span>

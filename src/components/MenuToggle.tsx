@@ -1,23 +1,18 @@
 import { createSignal } from "solid-js";
 import ss from "./MenuToggle.module.css";
+import { cl } from "@/lib/utils";
 
 export function MenuToggle() {
   let [isOpen, setIsOpen] = createSignal(false);
 
   function handleOpen() {
     let nav = document.querySelector(".nav");
-    nav.classList.toggle("open");
+    nav?.classList.toggle("open");
     setIsOpen((c) => !c);
   }
 
   return (
-    <button
-      classList={{
-        [ss.button]: true,
-        [ss.open]: isOpen(),
-      }}
-      onClick={handleOpen}
-    >
+    <button class={cl(ss.button, isOpen() && ss.open)} onClick={handleOpen}>
       <span class="sr-only">Toggle Menu</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
