@@ -10,8 +10,8 @@
     "lint": "eslint --ext .js,.ts,.astro --fix src"
   },
   "dependencies": {
-    "@astrojs/solid-js": "^5.1.0",
-    "astro": "^5.9.0",
+    "@astrojs/solid-js": "^5.1.1",
+    "astro": "^5.14.1",
     "astro-helmet": "^1.0.5",
     "solid-js": "^1.9.7"
   },
