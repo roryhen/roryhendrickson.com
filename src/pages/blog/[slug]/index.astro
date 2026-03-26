@@ -1,18 +1,18 @@
 ---
 import RootLayout from "@/components/RootLayout.astro";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import type { HeadItems } from "astro-helmet";
 
 export async function getStaticPaths() {
   const blogPosts = await getCollection("blog");
   return blogPosts.map((entry) => ({
-    params: { slug: entry.slug },
+    params: { slug: entry.id },
     props: { entry },
   }));
 }
 
 let { entry } = Astro.props;
-let { Content } = await entry.render();
+let { Content } = await render(entry);
 let post = entry.data;
 
 let headItems: HeadItems = {

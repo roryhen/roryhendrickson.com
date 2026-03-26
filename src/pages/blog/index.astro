@@ -12,17 +12,17 @@ const blogPosts = await getCollection("blog", ({ data }) =>
   <p>Thoughts and some technical documentation.</p>
 
   {
-    blogPosts.map(({ data, slug }) => (
+    blogPosts.map(({ data, id }) => (
       <section>
         <article class="post">
-          <a class="link" href={`/blog/${slug}`}>
+          <a class="link" href={`/blog/${id}`}>
             <h2 class="heading">{data.title}</h2>
           </a>
           <time class="date" datetime={data.date}>
             {data.date}
           </time>
           <p class="desc">{data.description}</p>
-          <a class="link more" href={`/blog/${slug}`}>
+          <a class="link more" href={`/blog/${id}`}>
             Read more &gt;
           </a>
         </article>
