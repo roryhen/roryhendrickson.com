@@ -1,19 +1,19 @@
 {
   "dependencies": {
     "@astrojs/solid-js": "^6.0.1",
-    "astro": "^6.3.3",
+    "astro": "^6.4.8",
     "astro-helmet": "^1.2.1",
-    "solid-js": "^1.9.12"
+    "solid-js": "^1.9.13"
   },
   "devDependencies": {
-    "@typescript-eslint/parser": "^8.59.3",
-    "eslint": "^10.4.0",
+    "@typescript-eslint/parser": "^8.61.1",
+    "eslint": "^10.5.0",
     "eslint-plugin-astro": "^1.7.0",
     "open-props": "^1.7.23",
     "postcss-jit-props": "^1.0.16",
-    "prettier": "^3.8.3",
+    "prettier": "^3.8.4",
     "prettier-plugin-astro": "^0.14.1",
-    "sharp": "^0.34.5"
+    "sharp": "^0.35.1"
   },
   "browserslist": [
     "defaults"
