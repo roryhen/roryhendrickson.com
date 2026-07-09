@@ -1,10 +1,11 @@
 import { createEffect, createSignal, onMount } from "solid-js";
+// @ts-types="npm:@types/css-modules"
 import ss from "./ThemeToggle.module.css";
-import { cl } from "@/lib/utils";
+import { cl } from "@/lib/utils.ts";
 
 export function ThemeToggle() {
-  let [theme, setTheme] = createSignal<"light" | "dark">("light");
-  let [hasTransition, setHasTransition] = createSignal(false);
+  const [theme, setTheme] = createSignal<"light" | "dark">("light");
+  const [hasTransition, setHasTransition] = createSignal(false);
 
   function toggle() {
     setTheme((c) => (c === "light" ? "dark" : "light"));
@@ -16,8 +17,7 @@ export function ThemeToggle() {
   }
 
   onMount(() => {
-    const themePreference = window.matchMedia("(prefers-color-scheme: dark)")
-      .matches
+    const themePreference = window.matchMedia("(prefers-color-scheme: dark)").matches
       ? "dark"
       : "light";
     setTheme(localStorage.theme || themePreference);
@@ -29,6 +29,7 @@ export function ThemeToggle() {
 
   return (
     <button
+      type="button"
       class={cl(ss.button, ss.toggle, theme() === "dark" && ss.dark)}
       style="--toggle-size: 1em; --toggle-pad: 0.15em;"
       onClick={toggle}

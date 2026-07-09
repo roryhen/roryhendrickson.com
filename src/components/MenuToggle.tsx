@@ -1,25 +1,21 @@
 import { createSignal } from "solid-js";
+// @ts-types="npm:@types/css-modules"
 import ss from "./MenuToggle.module.css";
-import { cl } from "@/lib/utils";
+import { cl } from "@/lib/utils.ts";
 
 export function MenuToggle() {
-  let [isOpen, setIsOpen] = createSignal(false);
+  const [isOpen, setIsOpen] = createSignal(false);
 
   function handleOpen() {
-    let nav = document.querySelector(".nav");
+    const nav = document.querySelector(".nav");
     nav?.classList.toggle("open");
     setIsOpen((c) => !c);
   }
 
   return (
-    <button class={cl(ss.button, isOpen() && ss.open)} onClick={handleOpen}>
+    <button type="button" class={cl(ss.button, isOpen() && ss.open)} onClick={handleOpen}>
       <span class="sr-only">Toggle Menu</span>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="33"
-        height="33"
-        viewBox="0 0 33 33"
-      >
+      <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33">
         <defs>
           <circle id="dot" cx="3.5" cy="3.5" r="3.5" />
         </defs>

@@ -6,6 +6,7 @@
     "solid-js": "^1.9.14"
   },
   "devDependencies": {
+    "@types/css-modules": "^1.0.5",
     "@typescript-eslint/parser": "^8.63.0",
     "eslint": "^10.6.0",
     "eslint-plugin-astro": "^2.1.1",
@@ -13,7 +14,8 @@
     "postcss-jit-props": "^1.0.16",
     "prettier": "^3.9.4",
     "prettier-plugin-astro": "^0.14.1",
-    "sharp": "^0.35.3"
+    "sharp": "^0.35.3",
+    "typescript-plugin-css-modules": "^5.2.0"
   },
   "browserslist": [
     "defaults"
