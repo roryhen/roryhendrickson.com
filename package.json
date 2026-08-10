@@ -7,8 +7,8 @@
   },
   "devDependencies": {
     "@types/css-modules": "^1.0.5",
-    "@typescript-eslint/parser": "^8.65.0",
-    "eslint": "^10.7.0",
+    "@typescript-eslint/parser": "^8.66.0",
+    "eslint": "^10.8.1",
     "eslint-plugin-astro": "^2.1.1",
     "open-props": "^1.7.23",
     "postcss-jit-props": "^1.0.16",
