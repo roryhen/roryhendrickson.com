@@ -2,7 +2,7 @@
   "tasks": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "deno check && astro build",
     "preview": "astro preview",
     "lint": "eslint --ext .js,.ts,.astro --fix src"
   },
