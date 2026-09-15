@@ -1,4 +1,0 @@
-[build]
-  command = "deno upgrade && deno task build"
-  environment = { NODE_VERSION = "24" }
-  publish = "dist"

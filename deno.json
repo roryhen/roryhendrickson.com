@@ -3,6 +3,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "deno check && astro build",
+    "deploy": "npx --yes wrangler deploy",
     "preview": "astro preview",
     "lint": "eslint --ext .js,.ts,.astro --fix src"
   },
