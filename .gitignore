@@ -2,8 +2,8 @@
 dist/
 # generated types
 .astro/
-# cloudflare workers (wrangler) local state
-.wrangler/
+
+.netlify/
 
 # dependencies
 node_modules/

@@ -1,9 +1,0 @@
-"$schema" = "https://unpkg.com/wrangler@4.131.2/config-schema.json"
-name = "roryhendrickson"
-compatibility_date = "2026-09-15"
-
-[build]
-command = "deno task build"
-
-[assets]
-directory = "./dist"

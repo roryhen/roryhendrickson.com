@@ -1,4 +1,11 @@
 {
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "lint": "eslint --ext .js,.ts,.astro --fix src"
+  },
   "dependencies": {
     "@astrojs/solid-js": "7.0.2",
     "astro": "7.3.2",
