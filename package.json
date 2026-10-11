@@ -2,25 +2,27 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro check && astro build",
     "preview": "astro preview",
     "lint": "eslint --ext .js,.ts,.astro --fix src"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.10",
     "@astrojs/solid-js": "7.0.2",
-    "astro": "7.3.2",
+    "astro": "^7.3.8",
     "astro-helmet": "^1.4.0",
-    "solid-js": "^1.9.15"
+    "solid-js": "^1.9.17",
+    "typescript": "^6.0.3"
   },
   "devDependencies": {
     "@types/css-modules": "^1.0.5",
-    "@typescript-eslint/parser": "^8.70.0",
-    "eslint": "^10.10.0",
-    "eslint-plugin-astro": "^3.1.0",
+    "@typescript-eslint/parser": "^8.71.1",
+    "eslint": "^10.12.0",
+    "eslint-plugin-astro": "^3.2.1",
     "open-props": "^1.7.23",
     "postcss-jit-props": "^1.0.16",
-    "prettier": "^3.9.6",
-    "prettier-plugin-astro": "^1.0.0",
+    "prettier": "^3.9.10",
+    "prettier-plugin-astro": "^1.1.1",
     "sharp": "^0.35.4",
     "typescript-plugin-css-modules": "^5.2.0"
   },
@@ -33,8 +35,7 @@
     }
   },
   "allowScripts": {
-    "esbuild@0.28.1": true,
-    "@parcel/watcher@2.5.6": true,
+    "@parcel/watcher@2.6.0": true,
     "fsevents@2.3.3": true
   }
 }

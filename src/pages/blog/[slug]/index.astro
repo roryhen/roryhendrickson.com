@@ -2,6 +2,7 @@
 import RootLayout from "@/components/RootLayout.astro";
 import { getCollection, render } from "astro:content";
 import type { HeadItems } from "astro-helmet";
+import { formatDate, toISODate } from "@/lib/utils";
 
 export async function getStaticPaths() {
   const blogPosts = await getCollection("blog");
@@ -31,7 +32,9 @@ let headItems: HeadItems = {
   <article class="post">
     <h1 class="title">{post.title}</h1>
     <div class="metadata">
-      <time class="date" datetime={post.date}>{post.date}</time>
+      <time class="date" datetime={toISODate(post.date)}
+        >{formatDate(post.date)}</time
+      >
       <div class="tags">
         {post.tags.map((tag) => <span class="tag">{tag}</span>)}
       </div>

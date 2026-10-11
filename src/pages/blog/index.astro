@@ -1,6 +1,7 @@
 ---
 import RootLayout from "@/components/RootLayout.astro";
 import { getCollection } from "astro:content";
+import { formatDate, toISODate } from "@/lib/utils";
 
 const blogPosts = await getCollection("blog", ({ data }) =>
   import.meta.env.PROD ? data.published : true,
@@ -18,8 +19,8 @@ const blogPosts = await getCollection("blog", ({ data }) =>
           <a class="link" href={`/blog/${id}`}>
             <h2 class="heading">{data.title}</h2>
           </a>
-          <time class="date" datetime={data.date}>
-            {data.date}
+          <time class="date" datetime={toISODate(data.date)}>
+            {formatDate(data.date)}
           </time>
           <p class="desc">{data.description}</p>
           <a class="link more" href={`/blog/${id}`}>

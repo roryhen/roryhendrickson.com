@@ -8,11 +8,7 @@ const blogCollection = defineCollection({
     title: z.string(),
     description: z.string(),
     author: z.string(),
-    date: z
-      .string()
-      .transform((str: string) =>
-        new Date(str).toLocaleDateString(undefined, { dateStyle: "medium" }),
-      ),
+    date: z.coerce.date(),
     tags: z.array(z.string()),
     published: z.boolean(),
   }),

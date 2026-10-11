@@ -3,7 +3,7 @@ title: Web Beginnings
 slug: web-beginnings
 description: Where the spark started for me in building for the web.
 author: Rory Hendrickson
-date: 2021-1-11
+date: "2021-01-11"
 tags:
   - design
   - development
